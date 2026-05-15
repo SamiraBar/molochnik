@@ -17,13 +17,10 @@
   pointer-events: none;
   z-index: 3;
   line-height: 0;
-  overflow: hidden;
-  max-height: 160px;
 }
 .hero__uzor img {
   width: 100%;
-  height: 160px;
-  object-fit: fill;
+  height: auto;
   display: block;
 }
 
@@ -50,20 +47,12 @@
   left: 80px;
   width: 165px;
   z-index: 6;
-  animation: stampFloat 9s ease-in-out infinite;
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  transform: rotate(-6deg);
 }
 .hero__stamp img {
   width: 100%;
   height: auto;
   display: block;
-}
-
-@keyframes stampFloat {
-  0%, 100% { transform: rotate(-6deg) translateY(0); }
-  50%      { transform: rotate(2deg) translateY(-6px); }
 }
 
 /* ===== Контент ===== */
@@ -90,11 +79,6 @@
   max-height: calc(100vh - 100px);
   object-fit: contain;
   object-position: bottom center;
-  /*filter: drop-shadow(0 24px 40px rgba(0, 51, 161, 0.15));*/
-  animation: floatY 6s ease-in-out infinite;
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
 .hero__character img,
@@ -104,10 +88,6 @@
   mix-blend-mode: multiply;
 }
 
-@keyframes floatY {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-10px); }
-}
 
 /* Текст — абсолютно, вертикально по центру в правой половине */
 .hero__text {
@@ -147,28 +127,16 @@
 /* ===== Кнопка-галочка ===== */
 .hero__galka {
   position: absolute;
-  right: 160px;
-  bottom: 52px;
+  right: 80px;
+  bottom: 80px;
   width: 110px;
   height: 110px;
   z-index: 5;
-  animation: spinSlow 16s linear infinite;
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 .hero__galka img {
   width: 100%;
   height: 100%;
   display: block;
-}
-.hero__galka:hover {
-  animation-play-state: paused;
-}
-
-@keyframes spinSlow {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
 }
 
 /* ===== Точки слайдера ===== */
@@ -197,7 +165,7 @@
 @media (max-width: 1440px) {
   .hero__title { font-size: 52px; }
   .hero__stamp { width: 155px; top: 200px; left: 60px; }
-  .hero__galka { width: 100px; height: 100px; right: 50px; }
+  .hero__galka { width: 100px; height: 100px; right: 60px; bottom: 70px; }
 }
 
 @media (max-width: 1200px) {
@@ -246,7 +214,7 @@
     width: 78px;
     height: 78px;
     right: 16px;
-    bottom: 80px;
+    bottom: 100px;
   }
   .hero__dots {
     right: 50%;
