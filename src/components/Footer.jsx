@@ -24,7 +24,11 @@ export default function Footer() {
                     className="footer__social"
                     aria-label="Instagram"
                 >
-                    <span className="footer__instagram-icon"></span>
+                    <img
+                        src="/images/insta.png"
+                        alt="insta"
+                        className="footer__insta-img"
+                    />
                 </a>
 
                 <p className="footer__note">

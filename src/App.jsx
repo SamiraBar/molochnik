@@ -26,6 +26,7 @@ export default function App() {
         <Products />
         <Facts />
         <Ecology />
+          <Products />
       </main>
       <Footer />
     </>
