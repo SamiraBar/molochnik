@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
-import Intro from './components/Intro.jsx'
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
@@ -19,7 +18,6 @@ export default function App() {
       <Header scrolled={scrolled} />
       <main>
         <Hero />
-        <Intro />
       </main>
         <Footer/>
     </>
