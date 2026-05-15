@@ -90,11 +90,18 @@
   max-height: calc(100vh - 100px);
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 24px 40px rgba(0, 51, 161, 0.15));
+  /*filter: drop-shadow(0 24px 40px rgba(0, 51, 161, 0.15));*/
   animation: floatY 6s ease-in-out infinite;
   will-change: transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.hero__character img,
+.hero__uzor img,
+.hero__landscape img,
+.hero__stamp img {
+  mix-blend-mode: multiply;
 }
 
 @keyframes floatY {

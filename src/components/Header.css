@@ -6,6 +6,7 @@
   right: 0;
   width: 100%;
   z-index: 100;
+  background: var(--bg-blue);
 }
 
 .header__inner {

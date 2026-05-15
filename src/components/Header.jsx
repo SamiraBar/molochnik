@@ -6,7 +6,7 @@ export default function Header({ scrolled }) {
       <div className="header__inner">
         <nav className="header__nav header__nav--left">
           <a href="#quality" className="header__link">О качестве</a>
-          <a href="#win" className="header__link">Выиграй 150К сом</a>
+          <a href="#win" lassName="header__link">Выиграй 150К сом</a>
         </nav>
 
         <a href="#" className="header__logo" aria-label="Весёлый молочник">
