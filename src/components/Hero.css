@@ -1,0 +1,269 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 72px;
+  overflow: hidden;
+  background: var(--bg-blue);
+}
+
+/* ===== Узор сразу под шапкой ===== */
+.hero__uzor {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 3;
+  line-height: 0;
+  overflow: hidden;
+  max-height: 160px;
+}
+.hero__uzor img {
+  width: 100%;
+  height: 160px;
+  object-fit: fill;
+  display: block;
+}
+
+/* ===== Пейзаж снизу ===== */
+.hero__landscape {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.hero__landscape img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== Печать 20 лет ===== */
+.hero__stamp {
+  position: absolute;
+  top: 160px;
+  left: 80px;
+  width: 165px;
+  z-index: 6;
+  animation: stampFloat 9s ease-in-out infinite;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.hero__stamp img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes stampFloat {
+  0%, 100% { transform: rotate(-6deg) translateY(0); }
+  50%      { transform: rotate(2deg) translateY(-6px); }
+}
+
+/* ===== Контент ===== */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  height: calc(100vh - 72px);
+  min-height: 600px;
+}
+
+/* Персонаж — абсолютно, прижат к левому низу */
+.hero__character {
+  position: absolute;
+  bottom: 0;
+  left: 80px;
+  width: 46%;
+  max-width: 520px;
+  z-index: 3;
+}
+
+.hero__character img {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 100px);
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 24px 40px rgba(0, 51, 161, 0.15));
+  animation: floatY 6s ease-in-out infinite;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+
+/* Текст — абсолютно, вертикально по центру в правой половине */
+.hero__text {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
+  width: 48%;
+  max-width: 580px;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero__title {
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 59px;
+  line-height: 1.22;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: var(--brand);
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+
+.hero__desc {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--brand);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* ===== Кнопка-галочка ===== */
+.hero__galka {
+  position: absolute;
+  right: 160px;
+  bottom: 52px;
+  width: 110px;
+  height: 110px;
+  z-index: 5;
+  animation: spinSlow 16s linear infinite;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.hero__galka img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hero__galka:hover {
+  animation-play-state: paused;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ===== Точки слайдера ===== */
+.hero__dots {
+  position: absolute;
+  right: 80px;
+  bottom: 60px;
+  display: flex;
+  gap: 10px;
+  z-index: 4;
+}
+.hero__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #c8dff0;
+  transition: background 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+.hero__dot--active {
+  background: var(--brand);
+  transform: scale(1.15);
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 1440px) {
+  .hero__title { font-size: 52px; }
+  .hero__stamp { width: 155px; top: 200px; left: 60px; }
+  .hero__galka { width: 100px; height: 100px; right: 50px; }
+}
+
+@media (max-width: 1200px) {
+  .hero__content {
+    padding: 50px 50px 0;
+    gap: 20px;
+  }
+  .hero__title { font-size: 46px; }
+  .hero__desc { font-size: 18px; }
+  .hero__character { max-width: 520px; }
+  .hero__stamp { width: 130px; top: 180px; left: 40px; }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-top: 60px;
+    min-height: auto;
+  }
+  .hero__uzor { top: 60px; }
+  .hero__content {
+    grid-template-columns: 1fr;
+    padding: 30px 24px 0;
+    text-align: center;
+    min-height: auto;
+    gap: 10px;
+  }
+  .hero__text {
+    padding-left: 0;
+    margin-top: 0;
+    order: 1;
+  }
+  .hero__character {
+    order: 2;
+    max-width: 380px;
+    margin: 0 auto;
+    justify-self: center;
+  }
+  .hero__title { font-size: 38px; }
+  .hero__desc { font-size: 16px; padding: 0 10px; }
+  .hero__stamp {
+    width: 100px;
+    top: 120px;
+    left: 12px;
+  }
+  .hero__galka {
+    width: 78px;
+    height: 78px;
+    right: 16px;
+    bottom: 80px;
+  }
+  .hero__dots {
+    right: 50%;
+    bottom: 30px;
+    transform: translateX(50%);
+  }
+  .hero__dot { width: 10px; height: 10px; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding-top: 56px; }
+  .hero__uzor { top: 56px; }
+  .hero__title { font-size: 30px; line-height: 1.18; }
+  .hero__desc { font-size: 14px; }
+  .hero__character { max-width: 300px; }
+  .hero__stamp {
+    width: 78px;
+    top: 100px;
+    left: 8px;
+  }
+  .hero__galka {
+    width: 64px;
+    height: 64px;
+    right: 12px;
+    bottom: 70px;
+  }
+}

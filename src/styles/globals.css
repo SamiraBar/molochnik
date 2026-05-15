@@ -1,0 +1,63 @@
+@font-face {
+  font-family: "Zametka_Parletter";
+  src: local("Zametka Parletter"), local("Sriracha");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-family: "Montserrat Alternates", sans-serif;
+  --second-family: "Zametka_Parletter", "Sriracha", cursive;
+  --third-family: "Sriracha", cursive;
+  --font3: "Poppins", sans-serif;
+
+  --brand: #0033a1;
+  --brand-soft: #cfe3f5;
+  --bg-blue: #d6ecf8;
+  --bg-blue-2: #c2e0f2;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #ffffff;
+  color: var(--brand);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  user-select: none;
+  -webkit-user-drag: none;
+  border: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}
