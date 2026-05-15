@@ -6,6 +6,7 @@ import Products from './components/Products.jsx'
 import Facts from './components/Facts.jsx'
 import Ecology from './components/Ecology.jsx'
 import Footer from './components/Footer.jsx'
+import Planet from "./components/Planet.jsx";
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -26,7 +27,7 @@ export default function App() {
         <Products />
         <Facts />
         <Ecology />
-          <Products />
+          <Planet />
       </main>
       <Footer />
     </>
