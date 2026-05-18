@@ -1,34 +1,33 @@
+/* ============================================
+   HERO — Десктопная база (Экран 1440px+)
+   ============================================ */
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  padding-top: 72px;
+  height: 100vh;
+  min-height: 750px;
+  padding-top: 72px; /* Высота шапки */
   overflow: hidden;
-  background: var(--bg-blue);
+  background: #ffffff;
 }
 
-/* ===== Узор сразу под шапкой ===== */
+/* ===== Узор бесконечно повторяется влево и вправо ===== */
 .hero__uzor {
   position: absolute;
   top: 72px;
   left: 0;
-  right: 0;
   width: 100%;
-  height: 150px;
-  overflow: hidden;
+  height: 180px; /* Крупный масштаб узора из Figma */
   pointer-events: none;
-  z-index: 3;
-  line-height: 0;
-}
-.hero__uzor img {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: scaleY(0.5);
-  transform-origin: top center;
+  z-index: 2;
+
+  background-image: url('/images/uzor.png');
+  background-repeat: repeat-x;
+  background-position: top center;
+  background-size: auto 100%;
 }
 
-/* ===== Пейзаж снизу ===== */
+/* ===== Пейзаж с горами ===== */
 .hero__landscape {
   position: absolute;
   left: 0;
@@ -44,14 +43,25 @@
   display: block;
 }
 
-/* ===== Печать 20 лет ===== */
+/* ===== Контейнер-сетка (1440px) ===== */
+.hero__inner {
+  position: relative;
+  max-width: 1440px;
+  width: 100%;
+  height: calc(100vh - 72px);
+  min-height: 678px;
+  margin: 0 auto;
+  z-index: 3;
+}
+
+/* ===== Печать «20 лет» ===== */
 .hero__stamp {
   position: absolute;
   top: 160px;
-  left: 80px;
-  width: 165px;
-  z-index: 6;
-  transform: rotate(-6deg);
+  left: 40px;
+  width: 150px;
+  z-index: 5;
+  transform: rotate(-12deg);
 }
 .hero__stamp img {
   width: 100%;
@@ -59,190 +69,203 @@
   display: block;
 }
 
-/* ===== Контент ===== */
-.hero__content {
-  position: relative;
-  z-index: 2;
-  height: calc(100vh - 72px);
-  min-height: 600px;
-}
-
-/* Персонаж — абсолютно, прижат к левому низу */
+/* ===== ДЕДУШКА (Размеры из Figma 643px) ===== */
 .hero__character {
   position: absolute;
   bottom: 0;
-  left: 80px;
-  width: 40%;
-  max-width: 460px;
-  z-index: 3;
+  left: 0px;
+  width: 643px;
+  z-index: 4;
 }
-
 .hero__character img {
   width: 100%;
   height: auto;
-  max-height: calc(100vh - 100px);
+  display: block;
+  max-height: calc(100vh - 120px);
   object-fit: contain;
-  object-position: bottom center;
+  object-position: bottom left;
 }
 
-.hero__character img,
-.hero__uzor img,
-.hero__landscape img,
-.hero__stamp img {
-  mix-blend-mode: multiply;
-}
-
-
-/* Текст — абсолютно, вертикально по центру в правой половине */
+/* ===== Текстовый блок ===== */
 .hero__text {
   position: absolute;
-  top: 50%;
-  right: 80px;
-  transform: translateY(-50%);
-  width: 48%;
-  max-width: 580px;
-  z-index: 2;
+  top: 240px; /* Положение блока под узором */
+  right: 40px;
+  width: 600px;
+  z-index: 4;
+
+  /* Делаем блок флексовым контейнером, чтобы галка центрировалась под абзацем */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
 .hero__title {
-  font-family: var(--second-family);
+  font-family: 'Zametka_Parletter', var(--second-family, sans-serif);
   font-weight: 400;
   font-size: 59px;
   line-height: 1.22;
   letter-spacing: 0.05em;
-  text-align: center;
-  color: var(--brand);
+  color: #002d84;
   text-transform: uppercase;
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
 
 .hero__desc {
-  font-family: var(--font-family);
+  font-family: var(--font-family, sans-serif);
   font-weight: 500;
   font-size: 22px;
-  line-height: 1.25;
-  text-align: center;
-  color: var(--brand);
+  line-height: 1.35;
+  color: #002d84;
   max-width: 520px;
   margin: 0 auto;
 }
 
-/* ===== Кнопка-галочка ===== */
+/* ===== Круглая галочка ПОД текстом ===== */
 .hero__galka {
-  position: absolute;
-  right: 80px;
-  bottom: 80px;
-  width: 110px;
-  height: 110px;
-  z-index: 5;
+  display: block;
+  margin-top: 35px; /* Отступ сверху от абзаца описания */
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  width: 130px; /* Размер круга с вращающимся текстом */
+  transition: transform 0.3s ease;
+}
+.hero__galka:hover {
+  transform: scale(1.08); /* Эффект при наведении */
 }
 .hero__galka img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
 }
 
-/* ===== Точки слайдера ===== */
+/* ===== Точки слайдера внизу справа ===== */
 .hero__dots {
   position: absolute;
-  right: 80px;
+  right: 60px;
   bottom: 60px;
   display: flex;
   gap: 10px;
-  z-index: 4;
+  z-index: 5;
 }
 .hero__dot {
   width: 14px;
   height: 14px;
   border-radius: 50%;
   background: #c8dff0;
-  transition: background 0.3s ease, transform 0.3s ease;
   cursor: pointer;
 }
 .hero__dot--active {
-  background: var(--brand);
-  transform: scale(1.15);
+  background: #002d84;
 }
 
-/* ===== Адаптив ===== */
-@media (max-width: 1440px) {
-  .hero__title { font-size: 52px; }
-  .hero__stamp { width: 155px; top: 200px; left: 60px; }
-  .hero__galka { width: 100px; height: 100px; right: 60px; bottom: 70px; }
-}
-
-@media (max-width: 1200px) {
-  .hero__content {
-    padding: 50px 50px 0;
-    gap: 20px;
-  }
-  .hero__title { font-size: 46px; }
-  .hero__desc { font-size: 18px; }
-  .hero__character { max-width: 520px; }
-  .hero__stamp { width: 130px; top: 180px; left: 40px; }
-}
-
-@media (max-width: 900px) {
-  .hero {
-    padding-top: 60px;
-    min-height: auto;
-  }
-  .hero__uzor { top: 60px; }
-  .hero__content {
-    grid-template-columns: 1fr;
-    padding: 30px 24px 0;
-    text-align: center;
-    min-height: auto;
-    gap: 10px;
-  }
-  .hero__text {
-    padding-left: 0;
-    margin-top: 0;
-    order: 1;
+/* ============================================
+   Адаптив под ноутбуки (Меньше 1440px)
+   ============================================ */
+@media (max-width: 1439px) {
+  .hero__inner {
+    padding: 0 20px;
   }
   .hero__character {
-    order: 2;
-    max-width: 380px;
-    margin: 0 auto;
-    justify-self: center;
+    width: 42vw;
+    max-width: 643px;
+    left: 10px;
   }
-  .hero__title { font-size: 38px; }
-  .hero__desc { font-size: 16px; padding: 0 10px; }
-  .hero__stamp {
-    width: 100px;
-    top: 120px;
-    left: 12px;
+  .hero__text {
+    right: 20px;
+    width: 45vw;
+  }
+  .hero__title {
+    font-size: 3.8vw;
+  }
+  .hero__desc {
+    font-size: 1.5vw;
   }
   .hero__galka {
-    width: 78px;
-    height: 78px;
-    right: 16px;
-    bottom: 100px;
+    margin-top: 25px;
+    width: 105px;
   }
-  .hero__dots {
-    right: 50%;
-    bottom: 30px;
-    transform: translateX(50%);
-  }
-  .hero__dot { width: 10px; height: 10px; }
 }
 
-@media (max-width: 480px) {
-  .hero { padding-top: 56px; }
-  .hero__uzor { top: 56px; }
-  .hero__title { font-size: 30px; line-height: 1.18; }
-  .hero__desc { font-size: 14px; }
-  .hero__character { max-width: 300px; }
-  .hero__stamp {
-    width: 78px;
-    top: 100px;
-    left: 8px;
+/* ============================================
+   МОБИЛКА (Строго по макету)
+   ============================================ */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
   }
+
+  .hero__uzor {
+    top: 60px;
+    height: 90px;
+  }
+
+  .hero__inner {
+    height: auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 110px 16px 20px;
+  }
+
+  .hero__text {
+    position: static;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 24px;
+  }
+
+  .hero__title {
+    font-size: 30px;
+    line-height: 1.22;
+    margin-bottom: 16px;
+  }
+
+  .hero__desc {
+    font-size: 15px;
+  }
+
+  /* На мобилке скрываем круглую галку, если её нет в дизайне телефона */
   .hero__galka {
-    width: 64px;
-    height: 64px;
-    right: 12px;
-    bottom: 70px;
+    display: none;
+  }
+
+  .hero__character {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+    z-index: 4;
+  }
+
+  .hero__stamp {
+    position: absolute;
+    top: auto;
+    bottom: 80px;
+    left: 16px;
+    width: 84px;
+    z-index: 5;
+  }
+
+  .hero__dots {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 20px auto 0;
+    justify-content: center;
+  }
+
+  .hero__dot {
+    width: 10px;
+    height: 10px;
   }
 }
