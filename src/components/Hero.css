@@ -57,9 +57,9 @@
 /* ===== Печать «20 лет» ===== */
 .hero__stamp {
   position: absolute;
-  top: 160px;
+  top: 32px;
   left: 40px;
-  width: 150px;
+  width: 210px;
   z-index: 5;
   transform: rotate(-12deg);
 }
@@ -74,7 +74,7 @@
   position: absolute;
   bottom: 0;
   left: 0px;
-  width: 643px;
+  width: 420px;
   z-index: 4;
 }
 .hero__character img {
@@ -91,7 +91,7 @@
   position: absolute;
   top: 240px; /* Положение блока под узором */
   right: 40px;
-  width: 600px;
+  width: 680px;
   z-index: 4;
 
   /* Делаем блок флексовым контейнером, чтобы галка центрировалась под абзацем */
@@ -175,7 +175,7 @@
   }
   .hero__text {
     right: 20px;
-    width: 45vw;
+    width: 48vw;
   }
   .hero__title {
     font-size: 3.8vw;
@@ -206,61 +206,78 @@
     height: 90px;
   }
 
+  /* Контент: текст сверху, персонаж снизу */
   .hero__inner {
+    position: relative;
     height: auto;
-    min-height: 0;
+    min-height: calc(100vh - 60px);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 110px 16px 20px;
+    padding: 130px 24px 0;
   }
 
+  /* Текст — сверху, выровнен по левому краю */
   .hero__text {
     position: static;
     width: 100%;
-    max-width: 360px;
-    margin-bottom: 24px;
+    max-width: none;
+    text-align: left;
+    align-items: flex-start;
+    margin-bottom: 0;
   }
 
   .hero__title {
-    font-size: 30px;
-    line-height: 1.22;
-    margin-bottom: 16px;
+    font-size: 32px;
+    line-height: 1.18;
+    text-align: left;
+    margin-bottom: 12px;
   }
 
   .hero__desc {
-    font-size: 15px;
+    font-size: 16px;
+    text-align: left;
+    margin: 0;
+    max-width: none;
+    padding-bottom: 24px;
   }
 
-  /* На мобилке скрываем круглую галку, если её нет в дизайне телефона */
   .hero__galka {
     display: none;
   }
 
+  /* Персонаж — занимает нижнюю половину, чуть к центру */
   .hero__character {
-    position: relative;
-    bottom: auto;
-    left: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    max-width: 330px;
-    margin: 0 auto;
+    max-width: none;
     z-index: 4;
   }
+  .hero__character img {
+    max-height: 52vh;
+    object-fit: contain;
+    object-position: bottom center;
+  }
 
+  /* 20 лет — слева, у фартука персонажа */
   .hero__stamp {
     position: absolute;
     top: auto;
-    bottom: 80px;
-    left: 16px;
-    width: 84px;
-    z-index: 5;
+    bottom: 10%;
+    left: 14px;
+    width: 100px;
+    z-index: 6;
+    transform: rotate(-12deg);
   }
 
+  /* Точки — по центру внизу */
   .hero__dots {
-    position: relative;
+    position: absolute;
     right: auto;
-    bottom: auto;
-    margin: 20px auto 0;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
     justify-content: center;
   }
 
