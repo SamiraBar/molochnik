@@ -1,76 +1,137 @@
 .quality {
+  position: relative;
   width: 100%;
   background: #fff;
   overflow: hidden;
 }
 
-.quality__cows {
+.quality__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 80px 0;
+}
+
+/* ===== Корова — выглядывает из левого нижнего угла секции ===== */
+.quality__cow {
+  position: absolute;
+  bottom: 0;
+  left: -20px;
+  width: 270px;
+  z-index: 5;
+}
+.quality__cow img {
   width: 100%;
+  height: auto;
+  display: block;
+  mix-blend-mode: multiply;
+}
+
+/* ===== Сцена ===== */
+.quality__stage {
+  position: relative;
+  height: 660px;
+}
+
+/* ===== Горы — по низу, на всю ширину секции ===== */
+.quality__landscape {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  z-index: 1;
   line-height: 0;
 }
-.quality__cows img {
+.quality__landscape img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.quality__body {
-  padding: 60px 80px 80px;
-}
-
-.quality__title {
-  font-family: var(--second-family);
-  font-weight: 400;
-  font-size: 52px;
-  line-height: 1.1;
-  letter-spacing: 0.05em;
-  text-align: center;
-  color: var(--brand);
-  text-transform: uppercase;
-  margin-bottom: 48px;
-}
-
-.quality__cards {
+/* ===== Видео — корова наслаивается слева ===== */
+.quality__video {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: calc(72% + 100px);
+  aspect-ratio: 16/9;
+  background: #d4d4d4;
+  border-radius: 28px;
   display: flex;
-  gap: 32px;
-  justify-content: center;
-}
-
-.quality__card {
-  flex: 1;
-  max-width: 360px;
-  background: var(--bg-blue);
-  border-radius: 24px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 20px;
-  text-align: center;
+  justify-content: center;
+  z-index: 2;
 }
 
-.quality__icon {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
+.quality__play {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.quality__play:hover {
+  transform: scale(1.1);
 }
 
-.quality__card-text {
+/* ===== Речевой пузырь ===== */
+.quality__bubble {
+  position: absolute;
+  bottom: 90px;
+  left: 280px;
+  z-index: 4;
+  background: var(--bg-blue);
+  border-radius: 20px;
+  padding: 20px 28px;
+  max-width: 300px;
+}
+.quality__bubble p {
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--brand);
 }
 
+/* ===== Белая волна снизу ===== */
+.quality__wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  line-height: 0;
+}
+.quality__wave svg {
+  width: 100%;
+  display: block;
+}
+
+/* ===== Адаптив ===== */
+@media (max-width: 1280px) {
+  .quality__inner { padding: 50px 48px 0; }
+  .quality__cow { width: 230px; left: -10px; }
+  .quality__video { left: 80px; width: 62%; }
+  .quality__bubble { left: 250px; }
+}
+
 @media (max-width: 1024px) {
-  .quality__body { padding: 48px 48px 64px; }
-  .quality__title { font-size: 42px; }
+  .quality__stage { height: 520px; }
+  .quality__cow { width: 200px; left: -10px; }
+  .quality__video { left: 60px; width: 65%; }
+  .quality__bubble { left: 210px; bottom: 70px; }
+  .quality__bubble p { font-size: 14px; }
 }
 
 @media (max-width: 768px) {
-  .quality__body { padding: 36px 24px 48px; }
-  .quality__title { font-size: 34px; }
-  .quality__cards { flex-direction: column; align-items: center; }
-  .quality__card { max-width: 100%; }
+  .quality__inner { padding: 36px 24px 0; }
+  .quality__stage { height: 380px; }
+  .quality__cow { width: 140px; left: -10px; }
+  .quality__video { left: 40px; width: 78%; border-radius: 16px; }
+  .quality__bubble {
+    left: 130px;
+    bottom: 50px;
+    max-width: 200px;
+    padding: 12px 16px;
+  }
+  .quality__bubble p { font-size: 13px; }
 }
