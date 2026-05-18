@@ -1,6 +1,8 @@
 import './Hero.css'
+import { useLang } from '../context/LanguageContext.jsx'
 
 export default function Hero() {
+  const { lang, t } = useLang()
   return (
       <section className="hero" id="hero">
         {/* Узор работает чисто через CSS background */}
@@ -26,13 +28,13 @@ export default function Hero() {
 
           {/* Текстовый блок */}
           <div className="hero__text">
-            <h1 className="hero__title">
-              Невидимая забота<br />
-              каждый день
+            <h1 className={`hero__title${lang === 'kg' ? ' hero__title--kg' : ''}`}>
+              {t.hero.title.map((line, i) => (
+                <span key={i}>{i > 0 && <br />}{line}</span>
+              ))}
             </h1>
             <p className="hero__desc">
-              Я – Весёлый молочник! И я каждый день забочусь, чтобы на вашем
-              столе были только качественные молочные продукты из свежего молока.
+              {t.hero.desc}
             </p>
 
             {/* ГАЛКА ТЕПЕРЬ ТУТ — она автоматически встанет под текстом */}

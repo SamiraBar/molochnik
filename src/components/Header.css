@@ -41,6 +41,7 @@
   letter-spacing: 0.05em;
   color: #0033a1;
   text-transform: uppercase;
+  white-space: nowrap;
   transition: color 0.25s ease, opacity 0.25s ease;
   cursor: pointer;
 }

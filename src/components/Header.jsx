@@ -1,15 +1,10 @@
 import { useState, useEffect } from 'react'
 import './Header.css'
-
-const NAV_LINKS = [
-  { href: '#quality', label: 'О качестве' },
-  { href: '#win', label: 'Выиграй 150К сом' },
-  { href: '#products', label: 'Продукция' },
-  { href: '#ecology', label: 'Об экологии' },
-]
+import { useLang } from '../context/LanguageContext.jsx'
 
 export default function Header({ scrolled }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { lang, toggle, t } = useLang()
 
   // Блокируем скролл body, когда открыто мобильное меню
   useEffect(() => {
@@ -24,8 +19,8 @@ export default function Header({ scrolled }) {
         <header className={`header ${scrolled ? 'is-scrolled' : ''}`}>
           <div className="header__inner">
             <nav className="header__nav header__nav--left">
-              <a href="#quality" className="header__link">О качестве</a>
-              <a href="#win" className="header__link">Выиграй 150К сом</a>
+              <a href="#quality" className="header__link">{t.nav.quality}</a>
+              <a href="#win" className="header__link">{t.nav.win}</a>
             </nav>
 
             <a href="#" className="header__logo" aria-label="Весёлый молочник">
@@ -42,9 +37,11 @@ export default function Header({ scrolled }) {
             </a>
 
             <nav className="header__nav header__nav--right">
-              <a href="#products" className="header__link">Продукция</a>
-              <a href="#ecology" className="header__link">Об экологии</a>
-              <button className="header__lang" aria-label="Сменить язык">KG</button>
+              <a href="#products" className="header__link">{t.nav.products}</a>
+              <a href="#ecology" className="header__link">{t.nav.ecology}</a>
+              <button className="header__lang" aria-label="Сменить язык" onClick={toggle}>
+                {lang === 'ru' ? 'KG' : 'RU'}
+              </button>
             </nav>
 
             {/* Бургер для мобилки */}
@@ -78,19 +75,15 @@ export default function Header({ scrolled }) {
           </div>
 
           <nav className="mobile-menu__nav">
-            {NAV_LINKS.map((link) => (
-                <a
-                    key={link.href}
-                    href={link.href}
-                    className="mobile-menu__link"
-                    onClick={closeMenu}
-                >
-                  {link.label}
-                </a>
-            ))}
+            <a href="#quality" className="mobile-menu__link" onClick={closeMenu}>{t.nav.quality}</a>
+            <a href="#win" className="mobile-menu__link" onClick={closeMenu}>{t.nav.win}</a>
+            <a href="#products" className="mobile-menu__link" onClick={closeMenu}>{t.nav.products}</a>
+            <a href="#ecology" className="mobile-menu__link" onClick={closeMenu}>{t.nav.ecology}</a>
           </nav>
 
-          <button className="mobile-menu__lang" aria-label="Сменить язык">KG</button>
+          <button className="mobile-menu__lang" aria-label="Сменить язык" onClick={toggle}>
+            {lang === 'ru' ? 'KG' : 'RU'}
+          </button>
         </div>
       </>
   )

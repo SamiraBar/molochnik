@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { LanguageProvider } from './context/LanguageContext.jsx'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import Quality from './components/Quality.jsx'
@@ -19,7 +20,7 @@ export default function App() {
   }, [])
 
   return (
-    <>
+    <LanguageProvider>
       <Header scrolled={scrolled} />
       <main>
         <Hero />
@@ -27,9 +28,9 @@ export default function App() {
         <Products />
         <Facts />
         <Ecology />
-          <Planet />
+        <Planet />
       </main>
       <Footer />
-    </>
+    </LanguageProvider>
   )
 }

@@ -111,6 +111,10 @@
   text-transform: uppercase;
   margin-bottom: 24px;
 }
+.hero__title--kg {
+  font-size: 48px;
+  letter-spacing: 0.03em;
+}
 
 .hero__desc {
   font-family: var(--font-family, sans-serif);
