@@ -33,7 +33,7 @@ export default function Quality() {
       {/* Белая волна внизу */}
       <div className="quality__wave" aria-hidden="true">
         <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,55 C200,90 400,20 720,55 C900,75 1100,25 1440,55 L1440,90 L0,90 Z" fill="white"/>
+          <path d="M0,55 C90,80 180,30 270,55 C360,80 450,30 540,55 C630,80 720,30 810,55 C900,80 990,30 1080,55 C1170,80 1260,30 1350,55 C1395,68 1420,60 1440,55 L1440,90 L0,90 Z" fill="white"/>
         </svg>
       </div>
 

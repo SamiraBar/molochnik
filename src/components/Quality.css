@@ -54,7 +54,7 @@
   top: 0;
   left: 100px;
   width: calc(72% + 100px);
-  aspect-ratio: 16/9;
+  height: 470px;
   background: #d4d4d4;
   border-radius: 28px;
   display: flex;
