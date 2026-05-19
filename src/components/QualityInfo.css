@@ -2,7 +2,8 @@
   position: relative;
   width: 100%;
   min-height: 1500px;
-  background: #F9FDFF;
+  margin-top: -100px;
+  background: linear-gradient(to bottom, transparent 100px, #F9FDFF 100px);
   overflow: hidden;
 }
 
@@ -31,41 +32,22 @@
   height: auto;
   display: block;
 }
-.qinfo__uzor--1 {
-  top: -60px;
-  left: -120px;
-  width: 540px;
-  transform: rotate(10deg) scale(1.3);
-  opacity: 0.08;
+.qinfo__uzor--left {
+  top: 150px;
+  left: -60px;
+  width: 600px;
+  transform: rotate(8deg);
 }
-.qinfo__uzor--2 {
-  top: 350px;
-  left: 20%;
-  width: 900px;
-  transform: rotate(-15deg) scale(2.2);
-  opacity: 0.05;
-}
-.qinfo__uzor--right {
-  top: 0;
-  right: -40px;
-  width: 420px;
-  height: 100%;
-  opacity: 0.12;
-  transform: none;
-}
-.qinfo__uzor--right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: left center;
+.qinfo__uzor--left img {
+  mix-blend-mode: multiply;
 }
 
 /* ===== Корова ===== */
 .qinfo__cow {
   position: absolute;
-  top: -10px;
+  top: 10px;
   left: -20px;
-  width: 420px;
+  width: 270px;
   z-index: 5;
 }
 .qinfo__cow img {
@@ -74,13 +56,13 @@
   display: block;
 }
 
-/* ===== Речевое облако ===== */
+/* ===== Речевое облако — в прозрачной зоне, справа под коровой ===== */
 .qinfo__bubble {
   position: absolute;
-  top: -80px;
-  left: 300px;
+  top: 15px;
+  left: 220px;
   z-index: 6;
-  width: 320px;
+  width: 300px;
 }
 .qinfo__bubble img {
   width: 100%;

@@ -4,16 +4,8 @@ export default function QualityInfo() {
   return (
     <section className="qinfo" id="qinfo">
 
-      {/* Декоративный узор 1 — верх слева */}
-      <div className="qinfo__uzor qinfo__uzor--1" aria-hidden="true">
-        <img src="/images/uz1.png" alt="" />
-      </div>
-      {/* Декоративный узор 2 — центр */}
-      <div className="qinfo__uzor qinfo__uzor--2" aria-hidden="true">
-        <img src="/images/uz1.png" alt="" />
-      </div>
-      {/* Узор справа на весь блок */}
-      <div className="qinfo__uzor qinfo__uzor--right" aria-hidden="true">
+      {/* Узор слева */}
+      <div className="qinfo__uzor qinfo__uzor--left" aria-hidden="true">
         <img src="/images/uz1.png" alt="" />
       </div>
 
