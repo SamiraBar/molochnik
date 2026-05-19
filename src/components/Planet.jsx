@@ -18,7 +18,7 @@ export default function Planet() {
 
                     <div className="planet-card__head">
                         <div className="planet-card__icon">
-                            <img src="/images/icon-recycle.png" alt="" />
+                            <img src="/images/strelki.png" alt="" />
                         </div>
 
                         <h3 className="planet-card__title">
@@ -47,7 +47,7 @@ export default function Planet() {
 
                     <div className="planet-card__head">
                         <div className="planet-card__icon">
-                            <img src="/images/icon-car.png" alt="" />
+                            <img src="/images/car.png" alt="" />
                         </div>
 
                         <h3 className="planet-card__title">

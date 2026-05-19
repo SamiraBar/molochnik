@@ -13,10 +13,10 @@ export default function Footer() {
                 </a>
 
                 <nav className="footer__nav" aria-label="Навигация футера">
-                    <a href="#ecology" className="footer__link">Об экологии</a>
-                    <a href="#quality" className="footer__link">О качестве</a>
-                    <a href="#products" className="footer__link">Продукция</a>
-                    <a href="#promo" className="footer__link">Промо</a>
+                    <a href="#ecology" className="footer__link zametka-bold">Об экологии</a>
+                    <a href="#quality" className="footer__link zametka-bold">О качестве</a>
+                    <a href="#products" className="footer__link zametka-bold">Продукция</a>
+                    <a href="#promo" className="footer__link zametka-bold">Промо</a>
                 </nav>
 
                 <a
