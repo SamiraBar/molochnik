@@ -1,0 +1,134 @@
+.milk-facts {
+    width: 100%;
+    position: relative;
+    background: #f7fbfd;
+    overflow: hidden;
+
+    min-height: 760px;
+    padding: 80px 30px 0;
+
+    z-index: 1;
+}
+
+.milk-facts__inner {
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 680px;
+    text-align: center;
+}
+
+.milk-facts__uzor {
+    position: absolute;
+    right: 0px;
+    top: -500px;
+
+    width: 100%;
+    max-width: none;
+    height: auto;
+
+    z-index: 1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.milk-facts__man {
+    position: absolute;
+    left: -50px;
+    bottom: -380px;
+
+    width: 650px;
+    max-width: none;
+    height: auto;
+
+    z-index: 3;
+    pointer-events: none;
+    user-select: none;
+}
+
+.milk-facts__content {
+    position: relative;
+    z-index: 4;
+    padding-left: 410px;
+    padding-top: 0;
+    padding-bottom: 300px;
+}
+
+.milk-facts__title {
+    margin: 0 30px 145px 0;
+    font-family: var(--second-family);
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--brand);
+    z-index: 5;
+    position: relative;
+}
+
+.milk-facts__bubble {
+    position: relative;
+    z-index: 3;
+
+    width: 669px;
+    min-height: 154px;
+    margin: 75px 0 0 70px;
+    padding: 34px 60px;
+
+    background: #b8e5fb;
+    border-radius: 44px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+
+.milk-facts__button {
+    margin: 60px 0 0 465px;
+
+    width: 363px;
+    height: 106px;
+
+    background: var(--brand);
+    border-radius: 33px;
+
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 283%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    -webkit-text-stroke: 0.35px #ffffff;
+    text-shadow:
+            0.4px 0 #ffffff,
+            -0.4px 0 #ffffff,
+            0 0.4px #ffffff,
+            0 -0.4px #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.milk-facts__button:hover {
+    background: #b8e8ff;
+    color: #0033a1;
+
+    -webkit-text-stroke: 0.35px #0033a1;
+
+    text-shadow:
+            0.4px 0 #0033a1,
+            -0.4px 0 #0033a1,
+            0 0.4px #0033a1,
+            0 -0.4px #0033a1;
+
+    transform: translateY(-2px);
+}

@@ -3,7 +3,7 @@ import './Planet.css'
 export default function Planet() {
     return (
         <section className="planet" id="ecology">
-            <h2 className="planet__title">
+            <h2 className="planet__title zametka-bold">
                 Что мы делаем <br />
                 для планеты ежедневно?
             </h2>
@@ -14,6 +14,12 @@ export default function Planet() {
                         src="/images/Vector.png"
                         alt=""
                         className="planet-card__pattern"
+                    />
+
+                    <img
+                        src="/images/uzorTop.png"
+                        alt=""
+                        className="planet-card__pattern2"
                     />
 
                     <div className="planet-card__head">
@@ -40,9 +46,15 @@ export default function Planet() {
 
                 <article className="planet-card planet-card--car">
                     <img
-                        src="/images/pattern-eco-right.png"
+                        src="/images/Vector.png"
                         alt=""
                         className="planet-card__pattern"
+                    />
+
+                    <img
+                        src="/images/uzorTop.png"
+                        alt=""
+                        className="planet-card__pattern2"
                     />
 
                     <div className="planet-card__head">
