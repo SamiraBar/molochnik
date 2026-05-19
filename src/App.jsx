@@ -3,6 +3,7 @@ import { LanguageProvider } from './context/LanguageContext.jsx'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import Quality from './components/Quality.jsx'
+import QualityInfo from './components/QualityInfo.jsx'
 import Products from './components/Products.jsx'
 import Facts from './components/Facts.jsx'
 import Ecology from './components/Ecology.jsx'
@@ -25,6 +26,7 @@ export default function App() {
       <main>
         <Hero />
         <Quality />
+        <QualityInfo />
         <Products />
         <Facts />
         <Ecology />
