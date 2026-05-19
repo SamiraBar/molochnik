@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Zametka_Parletter";
-    src: url("../../public/fonts/Zametka_Parletter.otf") format("opentype");
+    src: url("/fonts/Zametka_Parletter.otf") format("opentype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -19,6 +19,19 @@
   --bg-blue: #C0E7FA;
   --bg-blue-2: #c2e0f2;
   --white: #ffffff;
+    --zametka-stroke: 0.8px;
+}
+
+.zametka-bold {
+    font-family: "Zametka_Parletter", "Sriracha", cursive;
+
+    -webkit-text-stroke: var(--zametka-stroke) var(--brand);
+
+    text-shadow:
+            0.5px 0 var(--brand),
+            -0.5px 0 var(--brand),
+            0 0.5px var(--brand),
+            0 -0.5px var(--brand);
 }
 
 * {
