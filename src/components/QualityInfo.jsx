@@ -1,8 +1,18 @@
 import './QualityInfo.css'
+import { useLang } from '../context/LanguageContext'
 
 export default function QualityInfo() {
+  const { t } = useLang()
+  const qi = t.qualityInfo
   return (
     <section className="qinfo" id="qinfo">
+
+      {/* Верхняя волна */}
+      <div className="qinfo__wave-top" aria-hidden="true">
+        <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,90 C240,30 480,140 720,80 C960,20 1200,120 1440,70 L1440,150 L0,150 Z" fill="#F9FDFF"/>
+        </svg>
+      </div>
 
       {/* Узор слева */}
       <div className="qinfo__uzor qinfo__uzor--left" aria-hidden="true">
@@ -21,23 +31,23 @@ export default function QualityInfo() {
 
       {/* Контент */}
       <div className="qinfo__inner">
-        <h2 className="qinfo__title">ЗАБОТА О КАЧЕСТВЕ</h2>
+        <h2 className="qinfo__title">{qi.title}</h2>
 
         <div className="qinfo__benefits">
 
           <div className="qinfo__benefit">
             <img src="/images/milk_jug_icon.png" alt="" className="qinfo__icon" />
-            <p>Поставки свежего молока каждый день</p>
+            <p>{qi.benefits[0]}</p>
           </div>
 
           <div className="qinfo__benefit">
             <img src="/images/farm_icon.png" alt="" className="qinfo__icon" />
-            <p>Работаем только с проверенными фермами Кыргызстана</p>
+            <p>{qi.benefits[1]}</p>
           </div>
 
           <div className="qinfo__benefit">
             <img src="/images/quality_check_icon.png" alt="" className="qinfo__icon" />
-            <p>Строгий контроль качества на всех этапах производства</p>
+            <p>{qi.benefits[2]}</p>
           </div>
 
         </div>

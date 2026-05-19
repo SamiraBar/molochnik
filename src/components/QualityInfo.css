@@ -3,11 +3,11 @@
   width: 100%;
   min-height: 1500px;
   margin-top: -100px;
-  background: linear-gradient(to bottom, transparent 100px, #F9FDFF 100px);
+  background: linear-gradient(to bottom, transparent 150px, #F9FDFF 150px);
   overflow: hidden;
 }
 
-/* ===== Верхняя белая волна ===== */
+/* ===== Верхняя волна ===== */
 .qinfo__wave-top {
   position: absolute;
   top: 0;
