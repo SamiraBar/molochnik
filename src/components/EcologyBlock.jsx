@@ -1,6 +1,10 @@
 import './EcologyBlock.css'
+import { useLang } from '../context/LanguageContext'
 
 export default function EcologyBlock() {
+    const { t } = useLang()
+    const e = t.ecology
+
     return (
         <section className="ecology" id="ecology">
             <img
@@ -9,19 +13,14 @@ export default function EcologyBlock() {
                 className="ecology__wave ecology__wave--top"
             />
 
-            {/*<div className="ecology__inner">*/}
-                <h2 className="ecology__title zametka-bold">
-                    Забота об экологии
-                </h2>
-
-
+            <h2 className="ecology__title zametka-bold">
+                {e.title}
+            </h2>
 
             <div className="ecology__text-box">
-                <p>
-                    Веселый Молочник заботится не только о качестве продукции,
-                    но и о планете!
-                </p>
+                <p>{e.desc}</p>
             </div>
+
             <img
                 src="/images/MILKA.png"
                 alt="Весёлый молочник с коровой"

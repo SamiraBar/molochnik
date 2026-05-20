@@ -36,7 +36,7 @@
 
 .header__link {
   font-family: var(--second-family);
-  font-weight: 400;
+  font-weight: 700;
   font-size: 22px;
   letter-spacing: 0.05em;
   color: #0033a1;
@@ -111,6 +111,7 @@
 
 .header.is-scrolled .header__logo-img--initial { opacity: 0; }
 .header.is-scrolled .header__logo-img--scrolled { opacity: 1; }
+.header.is-scrolled .header__logo { width: 110px; }
 
 /* ===== Бургер (мобилка) ===== */
 .header__burger {

@@ -1,41 +1,31 @@
 import './Footer.css'
+import { useLang } from '../context/LanguageContext'
+
+const hrefs = ['#ecology', '#quality', '#products', '#promo']
 
 export default function Footer() {
-    return (
-        <footer className="footer">
-            <div className="footer__inner">
-                <a href="#" className="footer__logo" aria-label="Весёлый молочник">
-                    <img
-                        src="/images/logo-footer.png"
-                        alt="Весёлый молочник"
-                        className="footer__logo-img"
-                    />
-                </a>
+  const { t } = useLang()
+  const f = t.footer
 
-                <nav className="footer__nav" aria-label="Навигация футера">
-                    <a href="#ecology" className="footer__link zametka-bold">Об экологии</a>
-                    <a href="#quality" className="footer__link zametka-bold">О качестве</a>
-                    <a href="#products" className="footer__link zametka-bold">Продукция</a>
-                    <a href="#promo" className="footer__link zametka-bold">Промо</a>
-                </nav>
+  return (
+    <footer className="footer">
+      <div className="footer__inner">
+        <a href="#" className="footer__logo" aria-label="Весёлый молочник">
+          <img src="/images/logo-footer.png" alt="Весёлый молочник" className="footer__logo-img" />
+        </a>
 
-                <a
-                    href="#"
-                    className="footer__social"
-                    aria-label="Instagram"
-                >
-                    <img
-                        src="/images/insta.png"
-                        alt="insta"
-                        className="footer__insta-img"
-                    />
-                </a>
+        <nav className="footer__nav" aria-label="Навигация футера">
+          {f.links.map((link, i) => (
+            <a key={i} href={hrefs[i]} className="footer__link zametka-bold">{link}</a>
+          ))}
+        </nav>
 
-                <p className="footer__note">
-                    Информация носит справочный характер и не является публичной офертой,
-                    может быть изменена в любое время производителем и тд
-                </p>
-            </div>
-        </footer>
-    )
+        <a href="#" className="footer__social" aria-label="Instagram">
+          <img src="/images/insta.png" alt="insta" className="footer__insta-img" />
+        </a>
+
+        <p className="footer__note">{f.note}</p>
+      </div>
+    </footer>
+  )
 }
