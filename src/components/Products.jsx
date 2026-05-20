@@ -44,7 +44,7 @@ export default function Products() {
   return (
     <section className="products" id="products">
       <div className="products__inner">
-        <h2 className="products__title zametka-bold">{pr.title}</h2>
+        <h2 className={`products__title zametka-bold${active !== null ? ' products__title--expanded' : ''}`}>{pr.title}</h2>
 
         {active === null ? (
           <div className="products__grid">

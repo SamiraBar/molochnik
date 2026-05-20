@@ -25,6 +25,10 @@
   margin-bottom: 90px;
 }
 
+.products__title--expanded {
+  margin-bottom: 24px;
+}
+
 .products__grid {
   display: flex;
   gap: 40px;
