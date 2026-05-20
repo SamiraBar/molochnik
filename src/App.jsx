@@ -5,7 +5,6 @@ import Hero from './components/Hero.jsx'
 import Quality from './components/Quality.jsx'
 import QualityInfo from './components/QualityInfo.jsx'
 import Products from './components/Products.jsx'
-import Facts from './components/Facts.jsx'
 import Footer from './components/Footer.jsx'
 import Planet from "./components/Planet.jsx";
 import EcologyBlock from "./components/EcologyBlock.jsx";
@@ -29,8 +28,7 @@ export default function App() {
         <Quality />
         <QualityInfo />
         <Products />
-        <Facts />
-          <MilkFactsBlock />
+        <MilkFactsBlock />
           <EcologyBlock/>
         <Planet />
       </main>
