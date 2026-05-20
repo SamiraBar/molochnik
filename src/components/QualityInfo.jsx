@@ -31,7 +31,7 @@ export default function QualityInfo() {
 
       {/* Контент */}
       <div className="qinfo__inner">
-        <h2 className="qinfo__title">{qi.title}</h2>
+        <h2 className="qinfo__title zametka-bold">{qi.title}</h2>
 
         <div className="qinfo__benefits">
 

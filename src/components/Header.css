@@ -112,6 +112,10 @@
 .header.is-scrolled .header__logo-img--initial { opacity: 0; }
 .header.is-scrolled .header__logo-img--scrolled { opacity: 1; }
 .header.is-scrolled .header__logo { width: 110px; }
+.header.is-scrolled .header__logo-img {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
 
 /* ===== Бургер (мобилка) ===== */
 .header__burger {
