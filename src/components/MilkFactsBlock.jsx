@@ -53,7 +53,7 @@ export default function MilkFactsBlock() {
           {f.title}
         </h2>
 
-        <div className="milk-facts__content">
+        <div className={`milk-facts__content${isActive ? ' milk-facts__content--active' : ''}`}>
           {state === 'intro' && (
             <>
               <div className="milk-facts__bubble">

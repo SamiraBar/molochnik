@@ -133,6 +133,21 @@
     transform: translateY(-2px);
 }
 
+/* ===== Active (quiz/result) content layout ===== */
+
+.milk-facts__content--active {
+  padding-left: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.milk-facts__content--active .milk-facts__quiz-card,
+.milk-facts__content--active .milk-facts__result-card {
+  max-width: 720px;
+  width: 100%;
+}
+
 /* ===== Blur states ===== */
 
 .milk-facts__man--blur {
@@ -309,4 +324,40 @@
   color: #0039B5;
   line-height: 1.5;
   margin: 0;
+}
+
+/* ===== Адаптив ===== */
+
+@media (max-width: 1280px) {
+  .milk-facts__man { width: 520px; left: -20px; }
+  .milk-facts__content { padding-left: 330px; }
+  .milk-facts__bubble { width: 100%; margin-left: 0; }
+  .milk-facts__button { margin-left: auto; margin-right: auto; }
+}
+
+@media (max-width: 1024px) {
+  .milk-facts__man { width: 420px; left: -10px; bottom: -300px; }
+  .milk-facts__content { padding-left: 260px; }
+  .milk-facts__title { font-size: 48px; margin-bottom: 80px; }
+  .milk-facts__bubble { padding: 24px 36px; }
+}
+
+@media (max-width: 768px) {
+  .milk-facts { min-height: auto; padding: 40px 20px 40px; }
+  .milk-facts__inner { min-height: auto; }
+  .milk-facts__man {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: 220px;
+    display: block;
+    margin: 0 auto -40px;
+  }
+  .milk-facts__title { font-size: 36px; margin-bottom: 24px; text-align: center; }
+  .milk-facts__content { padding-left: 0; padding-bottom: 40px; }
+  .milk-facts__bubble { width: 100%; margin: 0; }
+  .milk-facts__button { margin: 24px auto 0; width: 100%; max-width: 320px; height: 72px; font-size: 22px; }
+  .milk-facts__content--active { padding-left: 0; }
+  .milk-facts__content--active .milk-facts__quiz-card,
+  .milk-facts__content--active .milk-facts__result-card { max-width: 100%; }
 }
