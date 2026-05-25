@@ -51,6 +51,25 @@ export default function QualityInfo() {
           </div>
 
         </div>
+
+        {/* Шаги-пузырьки */}
+        <div className="qinfo__steps">
+          {qi.steps.map((step, i) => (
+            <div key={i} className={`qinfo__step qinfo__step--${step.type}`}>
+              <p>{step.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Грузовик с маршрутом */}
+      <div className="qinfo__truck" aria-hidden="true">
+        <img src="/images/gruzvoy.png" alt="" />
+      </div>
+
+      {/* Пиалка */}
+      <div className="qinfo__pialka" aria-hidden="true">
+        <img src="/images/pialka.png" alt="" />
       </div>
 
       {/* Молочник снизу слева */}
