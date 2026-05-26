@@ -145,21 +145,31 @@
     .planet-card {
         width: 48%;
     }
+
+    .planet-card__text {
+        max-width: 465px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 125%;
+        color: #0033a1;
+        margin-top: auto;
+    }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .planet {
-        padding: 56px 20px 64px;
+        padding: 56px 20px 70px;
     }
 
     .planet__title {
-        font-size: 44px;
-        margin-bottom: 44px;
+        font-size: 52px;
+        margin-bottom: 52px;
     }
 
     .planet__cards {
         flex-direction: column;
         align-items: center;
+        gap: 28px;
     }
 
     .planet-card {
@@ -168,28 +178,197 @@
         height: auto;
         min-height: 355px;
     }
+
+    .planet-card__text {
+        font-size: 21px;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 900px) {
+.planet {
+    padding: 56px 20px 70px;
+    margin-top: 100px;
+}
+
+.planet__title {
+    font-size: 42px;
+    margin-bottom: 52px;
+}
+
+}
+
+@media (max-width: 800px) {
+    .planet {
+        padding: 56px 20px 70px;
+        margin-top: 150px;
+    }
+
+    .planet__title {
+        font-size: 42px;
+        margin-bottom: 52px;
+    }
+
+}
+
+@media (max-width: 740px) {
+    .planet {
+        padding: 56px 20px 70px;
+        margin-top: 200px;
+    }
+
+    .planet__title {
+        font-size: 32px;
+        margin-bottom: 52px;
+    }
+
 }
 
 @media (max-width: 560px) {
+    .planet {
+        margin-top: 200px;
+        padding: 48px 16px 56px;
+    }
+
     .planet__title {
-        font-size: 34px;
+        font-size: 38px;
+        line-height: 115%;
+        margin-bottom: 36px;
     }
 
     .planet-card {
-        border-radius: 32px;
-        padding: 26px 24px 30px;
+        max-width: 100%;
+        min-height: auto;
+        border-radius: 34px;
+        padding: 28px 26px 34px;
+    }
+
+    .planet-card {
+        border-radius: 30px;
+        padding: 26px 24px 32px;
+        background-image: url('/images/mobileUzor.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .planet-card__pattern,
+    .planet-card__pattern2 {
+        display: none;
     }
 
     .planet-card__head {
-        align-items: flex-start;
-        gap: 14px;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .planet-card__icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
     }
 
     .planet-card__title {
-        font-size: 20px;
+        font-size: 23px;
+        line-height: 125%;
     }
 
     .planet-card__text {
-        font-size: 18px;
+        max-width: 100%;
+        font-size: 21px;
+        line-height: 125%;
+    }
+
+    .planet-card__text + .planet-card__text {
+        margin-top: 22px;
+    }
+
+    .planet-card__pattern {
+        width: 200px;
+        height: 290px;
+        top: 40px;
+        right: -45px;
+    }
+
+    .planet-card__pattern2 {
+        width: 360px;
+        height: 300px;
+        top: 0;
+        right: -80px;
+    }
+}
+
+@media (max-width: 390px) {
+    .planet {
+        padding: 26px 0 48px;
+        margin-top: 2px;
+    }
+
+    .planet__title {
+        width: 100%;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 106%;
+        letter-spacing: 0;
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .planet__cards {
+        gap: 28px;
+        padding: 0 20px;
+    }
+
+    .planet-card {
+        width: 100%;
+        min-height: 0;
+        height: auto;
+        border-radius: 30px;
+        padding: 20px 20px 30px;
+
+        background-image: url('/images/mobileUzor.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .planet-card__pattern,
+    .planet-card__pattern2 {
+        display: none;
+    }
+
+    .planet-card__head {
+        display: grid;
+        grid-template-columns: 58px 1fr;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+    }
+
+    .planet-card__icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+    }
+
+    .planet-card__icon img {
+        width: 31px;
+        height: 31px;
+    }
+
+    .planet-card__title {
+        font-size: 14px;
+        line-height: 126%;
+    }
+
+    .planet-card__text {
+        max-width: 100%;
+        font-size: 12px;
+        line-height: 126%;
+        font-weight: 500;
+    }
+
+    .planet-card__text + .planet-card__text {
+        margin-top: 20px;
     }
 }
