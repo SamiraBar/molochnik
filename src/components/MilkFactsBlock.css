@@ -17,6 +17,7 @@
     position: relative;
     min-height: 680px;
     text-align: center;
+    overflow: visible;
 }
 
 .milk-facts__uzor {
@@ -72,16 +73,32 @@
     position: relative;
     z-index: 3;
 
-    width: 669px;
-    min-height: 154px;
-    margin: 75px 0 0 70px;
-    padding: 34px 60px;
+    width: 689px;
+    height: 176px;
 
-    background: #b8e5fb;
-    border-radius: 44px;
+    margin: 75px 0 0 40px;
+    padding: 34px 58px 34px 88px;
+
+    background-image: url('/images/factBlock.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
 
     display: flex;
     align-items: center;
+    text-align: left;
+}
+
+.milk-facts__bubble p {
+
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 125%;
+
+    color: var(--brand);
+
+    max-width: 620px;
 }
 
 
@@ -328,36 +345,525 @@
 
 /* ===== Адаптив ===== */
 
+/*@media (max-width: 1280px) {*/
+/*    .milk-facts__bubble{*/
+/*        width: 489px;*/
+/*        height: 146px;*/
+/*    }*/
+
+/*    .milk-facts__bubble p {*/
+/*        font-size: 16px;*/
+/*        max-width: 620px;*/
+/*    }*/
+
+/*  .milk-facts__button {*/
+/*      margin-left: auto;*/
+/*      margin-right: auto;*/
+/*  }*/
+
+/*    .milk-facts__uzor {*/
+/*        top: -200px;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 1000px) {*/
+/*    .milk-facts__bubble{*/
+/*        width: 489px;*/
+/*        height: 146px;*/
+/*        margin: 45px 0 0 -50px;*/
+/*        padding: 34px 58px 34px 58px;*/
+/*    }*/
+
+/*    .milk-facts__title {*/
+/*        margin: 0 30px 95px 0;*/
+/*    }*/
+
+/*    .milk-facts__bubble p {*/
+/*        font-size: 16px;*/
+/*        max-width: 620px;*/
+/*        font-size: 18px;*/
+/*    }*/
+
+/*    .milk-facts__button {*/
+/*        margin-left: auto;*/
+/*        margin-right: auto;*/
+/*    }*/
+
+/*    .milk-facts__uzor {*/
+/*        top: -200px;*/
+/*    }*/
+
+/*    .milk-facts__man {*/
+/*        left: -50px;*/
+/*        bottom: -280px;*/
+/*        width: 550px;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 900px) {*/
+/*    .milk-facts__bubble{*/
+/*        width: 489px;*/
+/*        height: 146px;*/
+/*        margin: 45px 0 0 -110px;*/
+/*        padding: 34px 58px 34px 58px;*/
+/*    }*/
+
+/*    .milk-facts__title {*/
+/*        margin: 0 30px 95px 0;*/
+/*    }*/
+
+/*    .milk-facts__bubble p {*/
+/*        font-size: 16px;*/
+/*        max-width: 620px;*/
+/*        font-size: 18px;*/
+/*    }*/
+
+/*    .milk-facts__button {*/
+/*        margin-left: auto;*/
+/*        margin-right: auto;*/
+/*    }*/
+
+/*    .milk-facts__uzor {*/
+/*        top: -100px;*/
+/*    }*/
+
+/*    .milk-facts__man {*/
+/*        left: -50px;*/
+/*        bottom: -180px;*/
+/*        width: 450px;*/
+/*    }*/
+
+/*    .milk-facts__button {*/
+/*        width: 263px;*/
+/*        height: 76px;*/
+/*        font-size: 24px;*/
+/*        border-radius: 27px;*/
+/*    }*/
+
+/*    .milk-facts__title {*/
+/*        font-size: 55px;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 850px) {*/
+/*    .milk-facts__bubble {*/
+/*        width: 430px;*/
+/*        height: 130px;*/
+/*        padding: 34px 28px 34px 50px;*/
+/*        margin: 45px 0 0 -170px;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 700px) {*/
+/*    .milk-facts__bubble {*/
+/*        width: 300px;*/
+/*        height: 170px;*/
+/*        padding: 34px 28px 34px 50px;*/
+/*        margin: 25px 0 0 -160px;*/
+/*    }*/
+
+/*    .milk-facts__bubble p {*/
+/*        font-size: 16px;*/
+/*    }*/
+
+/*    .milk-facts__button {*/
+/*        width: 263px;*/
+/*        height: 76px;*/
+/*        font-size: 24px;*/
+/*        border-radius: 27px;*/
+/*        margin: 50px 0 0 -65px;*/
+/*    }*/
+
+/*    .milk-facts__title {*/
+/*        margin: 0 30px 75px 0;*/
+/*    }*/
+
+/*    .milk-facts__uzor {*/
+/*        top: -10px;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 650px) {*/
+/*    .milk-facts__bubble {*/
+/*        width: 300px;*/
+/*        height: 170px;*/
+/*        padding: 34px 28px 34px 50px;*/
+/*        margin: 25px 0 70px -160px;*/
+/*    }*/
+
+/*    .milk-facts__bubble p {*/
+/*        font-size: 16px;*/
+/*    }*/
+
+/*    .milk-facts__button {*/
+/*        width: 263px;*/
+/*        height: 76px;*/
+/*        font-size: 24px;*/
+/*        border-radius: 27px;*/
+/*        margin: 10px 0 -80px -125px;*/
+/*    }*/
+
+/*    .milk-facts__title {*/
+/*        margin: 0 30px 35px 0;*/
+/*    }*/
+
+/*    .milk-facts__uzor {*/
+/*        top: 100px;*/
+/*    }*/
+
+/*    .milk-facts__man {*/
+/*        left: -50px;*/
+/*        bottom: -120px;*/
+/*        width: 370px;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 600px) {*/
+/*    .milk-facts__bubble {*/
+/*        width: 300px;*/
+/*        height: 170px;*/
+/*        padding: 34px 28px 34px 50px;*/
+/*        margin: 25px 0 130px -200px;*/
+/*        transform: translateY(60px);*/
+/*    }*/
+
+/*    .milk-facts__bubble p {*/
+/*        font-size: 16px;*/
+/*    }*/
+
+/*    .milk-facts__button {*/
+/*        width: 203px;*/
+/*        height: 56px;*/
+/*        font-size: 20px;*/
+/*        border-radius: 22px;*/
+/*        margin: 10px 0 -80px -125px;*/
+/*    }*/
+
+/*    .milk-facts__title {*/
+/*        margin: 0 30px 15px 0;*/
+/*        font-size: 44px;*/
+/*    }*/
+
+/*    .milk-facts__uzor {*/
+/*        top: 100px;*/
+/*    }*/
+
+/*    .milk-facts__man {*/
+/*        left: -50px;*/
+/*        bottom: -120px;*/
+/*        width: 370px;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 550px) {*/
+/*    .milk-facts__bubble {*/
+/*        width: 280px;*/
+/*        height: 120px;*/
+/*        padding: 34px 28px 34px 50px;*/
+/*        margin: 25px 0 130px -230px;*/
+/*        transform: translateY(80px);*/
+/*        background-image: url('/images/mobileFactBlock.png');*/
+/*    }*/
+
+/*    .milk-facts__bubble p {*/
+/*        font-size: 12px;*/
+/*    }*/
+
+/*    .milk-facts__button {*/
+/*        width: 203px;*/
+/*        height: 56px;*/
+/*        font-size: 20px;*/
+/*        border-radius: 22px;*/
+/*        margin: 10px 0 -80px -175px;*/
+/*    }*/
+
+/*    .milk-facts__title {*/
+/*        margin: 0 30px 15px 0;*/
+/*        font-size: 44px;*/
+/*    }*/
+
+/*    .milk-facts__uzor {*/
+/*        top: 100px;*/
+/*    }*/
+
+/*    .milk-facts__man {*/
+/*        left: -50px;*/
+/*        bottom: -100px;*/
+/*        width: 340px;*/
+/*    }*/
+/*}*/
+
 @media (max-width: 1280px) {
-  .milk-facts__man { width: 520px; left: -20px; }
-  .milk-facts__content { padding-left: 330px; }
-  .milk-facts__bubble { width: 100%; margin-left: 0; }
-  .milk-facts__button { margin-left: auto; margin-right: auto; }
+    .milk-facts {
+        min-height: 720px;
+        padding: 70px 30px 0;
+    }
+
+    .milk-facts__uzor {
+        top: -220px;
+        width: 115%;
+        right: -80px;
+    }
+
+    .milk-facts__title {
+        font-size: 56px;
+        margin: 0 0 110px;
+    }
+
+    .milk-facts__man {
+        width: 520px;
+        left: -35px;
+        bottom: -315px;
+    }
+
+    .milk-facts__content {
+        padding-left: 360px;
+        padding-bottom: 260px;
+    }
+
+    .milk-facts__bubble {
+        width: 560px;
+        height: 150px;
+        margin: 0 0 0 0;
+        padding: 28px 45px 28px 75px;
+    }
+
+    .milk-facts__bubble p {
+        font-size: 18px;
+        line-height: 125%;
+    }
+
+    .milk-facts__button {
+        width: 300px;
+        height: 82px;
+        margin: 58px 0 0 300px;
+        font-size: 25px;
+        border-radius: 28px;
+    }
 }
 
-@media (max-width: 1024px) {
-  .milk-facts__man { width: 420px; left: -10px; bottom: -300px; }
-  .milk-facts__content { padding-left: 260px; }
-  .milk-facts__title { font-size: 48px; margin-bottom: 80px; }
-  .milk-facts__bubble { padding: 24px 36px; }
+@media (max-width: 1000px) {
+    .milk-facts {
+        min-height: 690px;
+        padding: 64px 24px 0;
+    }
+
+    .milk-facts__inner {
+        min-height: 640px;
+    }
+
+    .milk-facts__title {
+        font-size: 50px;
+        margin-bottom: 100px;
+    }
+
+    .milk-facts__man {
+        width: 450px;
+        left: -45px;
+        bottom: -245px;
+    }
+
+    .milk-facts__content {
+        padding-left: 300px;
+        padding-bottom: 235px;
+    }
+
+    .milk-facts__bubble {
+        width: 490px;
+        height: 138px;
+        padding: 25px 38px 25px 68px;
+    }
+
+    .milk-facts__bubble p {
+        font-size: 17px;
+    }
+
+    .milk-facts__button {
+        width: 260px;
+        height: 72px;
+        margin: 52px 0 0 245px;
+        font-size: 22px;
+        border-radius: 25px;
+    }
 }
 
 @media (max-width: 768px) {
-  .milk-facts { min-height: auto; padding: 40px 20px 40px; }
-  .milk-facts__inner { min-height: auto; }
-  .milk-facts__man {
-    position: relative;
-    left: auto;
-    bottom: auto;
-    width: 220px;
-    display: block;
-    margin: 0 auto -40px;
-  }
-  .milk-facts__title { font-size: 36px; margin-bottom: 24px; text-align: center; }
-  .milk-facts__content { padding-left: 0; padding-bottom: 40px; }
-  .milk-facts__bubble { width: 100%; margin: 0; }
-  .milk-facts__button { margin: 24px auto 0; width: 100%; max-width: 320px; height: 72px; font-size: 22px; }
-  .milk-facts__content--active { padding-left: 0; }
-  .milk-facts__content--active .milk-facts__quiz-card,
-  .milk-facts__content--active .milk-facts__result-card { max-width: 100%; }
+    .milk-facts {
+        min-height: 670px;
+        padding: 58px 18px 0;
+    }
+
+    .milk-facts__inner {
+        min-height: 620px;
+    }
+
+    .milk-facts__uzor {
+        top: 20зч;
+        width: 150%;
+        right: -210px;
+    }
+
+    .milk-facts__title {
+        font-size: 44px;
+        margin: 0 0 70px;
+    }
+
+    .milk-facts__content {
+        padding-left: 230px;
+        padding-bottom: 210px;
+    }
+
+    .milk-facts__man {
+        width: 390px;
+        left: -55px;
+        bottom: -180px;
+    }
+
+    .milk-facts__bubble {
+        width: 340px;
+        height: 122px;
+        margin: 0;
+        padding: 22px 28px 22px 58px;
+    }
+
+    .milk-facts__bubble p {
+        font-size: 14px;
+        line-height: 125%;
+    }
+
+    .milk-facts__button {
+        width: 220px;
+        height: 62px;
+        margin: 48px 0 0 145px;
+        font-size: 20px;
+        border-radius: 22px;
+    }
+}
+
+@media (max-width: 550px) {
+    .milk-facts {
+        min-height: 620px;
+        padding: 58px 0 0;
+    }
+
+    .milk-facts__inner {
+        min-height: 585px;
+        max-width: 390px;
+        overflow: visible;
+    }
+
+    .milk-facts__uzor {
+        top: -208px;
+        right: -240px;
+        width: 220%;
+    }
+
+    .milk-facts__title {
+        font-size: 37px;
+        line-height: 100%;
+        letter-spacing: 0.02em;
+        margin: 0 0 34px;
+    }
+
+    .milk-facts__content {
+        padding-left: 0;
+        padding-bottom: 0;
+    }
+
+    .milk-facts__bubble {
+        width: 270px;
+        height: 166px;
+        margin: 0 0 0 130px;
+        padding: 19px 20px 22px 50px;
+
+        background-image: url('/images/mobileFactBlock.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+    }
+
+    .milk-facts__bubble p {
+        font-size: 14px;
+        line-height: 123%;
+        max-width: 200px;
+    }
+
+    .milk-facts__button {
+        width: 220px;
+        height: 68px;
+        margin: 70px 0 0 180px;
+        font-size: 20px;
+        border-radius: 22px;
+    }
+
+    .milk-facts__man {
+        width: 330px;
+        left: -98px;
+        bottom: -68px;
+    }
+}
+
+@media (max-width: 390px) {
+    .milk-facts {
+        min-height: 560px;
+        padding: 42px 0 0;
+    }
+
+    .milk-facts__inner {
+        max-width: 390px;
+        min-height: 540px;
+        overflow: hidden;
+    }
+
+    .milk-facts__title {
+        font-size: 34px;
+        line-height: 100%;
+        margin: 10px 0 28px;
+        transform: translateY(40px);
+    }
+
+    .milk-facts__uzor {
+        top: 45px;
+        right: -210px;
+        width: 210%;
+    }
+
+    .milk-facts__content {
+        padding: 0;
+    }
+
+    .milk-facts__bubble {
+        width: 200px;
+        height: 100px;
+        margin: 0 0 0 169px;
+        padding: 18px 16px 18px 42px;
+
+        background-image: url('/images/mobileFactBlock.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        transform: translateY(40px);
+    }
+
+    .milk-facts__bubble p {
+        font-size: 10px;
+        line-height: 122%;
+        max-width: 185px;
+        margin: 0;
+    }
+
+    .milk-facts__button {
+        width: 136px;
+        height: 44px;
+        margin: 64px 0 0 220px;
+
+        font-size: 13px;
+        line-height: 1;
+        border-radius: 12px;
+    }
+
+    .milk-facts__man {
+        width: 290px;
+        left: -25px;
+        bottom: -52px;
+    }
 }
