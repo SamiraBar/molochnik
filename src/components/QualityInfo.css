@@ -291,21 +291,133 @@
 }
 
 @media (max-width: 768px) {
-  .qinfo { min-height: auto; padding-bottom: 220px; }
+  /* Section */
+  .qinfo {
+    min-height: auto;
+    padding-bottom: 280px;
+    overflow: visible;
+  }
+
+  /* Убираем декоративные элементы */
   .qinfo__deco { display: none; }
-  .qinfo__cow { width: 120px; left: 0; top: 0; }
-  .qinfo__bubble { left: 100px; top: 8px; width: 185px; }
-  .qinfo__inner { padding: 160px 20px 60px 20px; }
-  .qinfo__title { font-size: 28px; margin-bottom: 24px; }
-  .qinfo__benefits { flex-direction: column; gap: 16px; }
-  .qinfo__icon { width: 44px; }
-  .qinfo__benefit p { font-size: 14px; }
-  .qinfo__step { max-width: 85%; font-size: 13px; padding: 14px 18px; margin-bottom: 12px; }
-  .qinfo__step--wide { max-width: 92%; }
-  .qinfo__connector { display: none; }
-  .qinfo__truck { display: none; }
-  .qinfo__pialka { width: 180px; right: 0; bottom: 100px; }
-  .qinfo__grandfather { width: 260px; bottom: 0; }
-  .qinfo__steps > :nth-child(1) { margin-left: 0; }
-  .qinfo__steps > :last-child  { margin-left: 0; }
+
+  /* Узор — уменьшаем для мобилки */
+  .qinfo__uzor--left {
+    top: 100px;
+    left: -30px;
+    width: 260px;
+    transform: rotate(8deg);
+  }
+
+  /* Грузовик — декоративный, справа в зоне шагов */
+  .qinfo__truck {
+    width: 298px;
+    height: 531px;
+    top: 434px;
+    right: -39px;
+    left: auto;
+  }
+
+  .qinfo__truck img {
+    height: auto;
+  }
+
+  /* Корова и облако — ниже заголовка (с учётом хедера 60px) */
+  .qinfo__cow {
+    width: 130px;
+    left: 8px;
+    top: 122px;
+  }
+  .qinfo__bubble {
+    left: 118px;
+    top: 122px;
+    width: 185px;
+  }
+
+  /* Контент — padding-top учитывает высоту хедера */
+  .qinfo__inner {
+    padding: 68px 16px 40px 16px;
+    max-width: 100%;
+  }
+
+  /* Заголовок вверху, без большого margin-top */
+  .qinfo__title {
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+
+  /* Преимущества — колонка, сдвинута вниз и правее коровы */
+  .qinfo__benefits {
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 160px;
+    padding-left: 100px;
+  }
+
+  .qinfo__icon { width: 40px; }
+
+  .qinfo__benefit p {
+    font-size: 13px;
+    width: auto;
+  }
+
+  /* Шаги — вертикальный flex-поток */
+  .qinfo__steps {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+    height: auto;
+  }
+
+  /* Каждый шаг — статичный блок, без абсолютного позиционирования */
+  .qinfo__step {
+    position: static;
+    width: 300px;
+    max-width: none;
+    height: auto;
+    min-height: 60px;
+    font-size: 13px;
+    padding: 14px 18px;
+    transform: none;
+  }
+
+  .qinfo__step--wide {
+    width: 300px;
+    max-width: none;
+  }
+
+  /* Порядок + трансформы как на макете */
+  .qinfo__steps > :nth-child(1) { width: 280px; margin-left: 0; order: 1; transform: rotate(-3deg); }
+  .qinfo__steps > :nth-child(2) { margin-left: 0; order: 2; transform: rotate(2deg); }
+  .qinfo__steps > :nth-child(3) { margin-left: 0; order: 3; transform: rotate(-2deg); }
+  /* Шаги 4 (Каждый день) и 5 (Пастеризуем) меняем местами: в дизайне Пастеризуем идёт выше */
+  .qinfo__steps > :nth-child(4) { margin-left: 0; order: 5; transform: rotate(2deg); }
+  .qinfo__steps > :nth-child(5) { margin-left: 0; order: 4; transform: rotate(-2deg); }
+  .qinfo__steps > :nth-child(6) { width: 300px; max-width: none; margin-left: 0; order: 6; transform: none; }
+
+  /* Нижние декорации */
+  .qinfo__pialka {
+    width: 276px;
+    right: -44px;
+    bottom: -67px;
+  }
+
+  .qinfo__grandfather {
+    width: 240px;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@media (max-width: 490px) {
+  .qinfo__cow { width: 115px; top: 118px; }
+  .qinfo__bubble { left: 106px; top: 118px; width: 168px; }
+  .qinfo__benefits { margin-top: 155px; }
+  .qinfo__step { width: 300px; }
+  .qinfo__steps > :nth-child(1) { width: 300px; }
+  .qinfo__benefit { width: auto; flex: 1; }
 }
