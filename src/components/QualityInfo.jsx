@@ -4,15 +4,14 @@ import { useLang } from '../context/LanguageContext'
 export default function QualityInfo() {
   const { t } = useLang()
   const qi = t.qualityInfo
+
   return (
     <section className="qinfo" id="qinfo">
 
-      {/* Верхняя волна */}
-      <div className="qinfo__wave-top" aria-hidden="true">
-        <svg viewBox="0 0 1440 150" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,90 C240,30 480,140 720,80 C960,20 1200,120 1440,70 L1440,150 L0,150 Z" fill="#F9FDFF"/>
-        </svg>
-      </div>
+      {/* Декоративные белые круги */}
+      <div className="qinfo__deco qinfo__deco--a" aria-hidden="true" />
+      <div className="qinfo__deco qinfo__deco--b" aria-hidden="true" />
+      <div className="qinfo__deco qinfo__deco--c" aria-hidden="true" />
 
       {/* Узор слева */}
       <div className="qinfo__uzor qinfo__uzor--left" aria-hidden="true">
@@ -29,45 +28,54 @@ export default function QualityInfo() {
         <img src="/images/cow_speech_cloud.png" alt="" />
       </div>
 
+      {/* Грузовик — полупрозрачный, между первым и вторым пузырём */}
+      <div className="qinfo__truck" aria-hidden="true">
+        <img src="/images/gruzvoy.png" alt="" />
+      </div>
+
       {/* Контент */}
       <div className="qinfo__inner">
         <h2 className="qinfo__title zametka-bold">{qi.title}</h2>
 
         <div className="qinfo__benefits">
-
           <div className="qinfo__benefit">
             <img src="/images/milk_jug_icon.png" alt="" className="qinfo__icon" />
             <p>{qi.benefits[0]}</p>
           </div>
-
           <div className="qinfo__benefit">
             <img src="/images/farm_icon.png" alt="" className="qinfo__icon" />
             <p>{qi.benefits[1]}</p>
           </div>
-
           <div className="qinfo__benefit">
             <img src="/images/quality_check_icon.png" alt="" className="qinfo__icon" />
             <p>{qi.benefits[2]}</p>
           </div>
-
         </div>
 
-        {/* Шаги-пузырьки */}
+        {/* Шаги-пузырьки с соединительными линиями */}
         <div className="qinfo__steps">
-          {qi.steps.map((step, i) => (
-            <div key={i} className={`qinfo__step qinfo__step--${step.type}`}>
-              <p>{step.text}</p>
-            </div>
-          ))}
+          {qi.steps.flatMap((step, i) => {
+            const isLast = i === qi.steps.length - 1
+            const items = [
+              <div
+                key={`step-${i}`}
+                className={`qinfo__step qinfo__step--${step.type}${isLast ? ' qinfo__step--wide' : ''}`}
+              >
+                <p>{step.text}</p>
+              </div>,
+            ]
+            /* Пунктирный коннектор после переходов left→right (шаги 0 и 2) */
+            // if (i === 0 || i === 2) {
+            //   items.push(
+            //     <div key={`conn-${i}`} className="qinfo__connector" aria-hidden="true" />
+            //   )
+            // }
+            return items
+          })}
         </div>
       </div>
 
-      {/* Грузовик с маршрутом */}
-      <div className="qinfo__truck" aria-hidden="true">
-        <img src="/images/gruzvoy.png" alt="" />
-      </div>
-
-      {/* Пиалка */}
+      {/* Пиалка — правый нижний угол */}
       <div className="qinfo__pialka" aria-hidden="true">
         <img src="/images/pialka.png" alt="" />
       </div>

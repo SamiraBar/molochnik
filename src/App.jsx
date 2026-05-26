@@ -25,7 +25,7 @@ export default function App() {
       <Header scrolled={scrolled} />
       <main>
         <Hero />
-        <Quality />
+        {/*<Quality />*/}
         <QualityInfo />
         <Products />
         <MilkFactsBlock />
