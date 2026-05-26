@@ -28,6 +28,155 @@ function ArrowBackIcon() {
   )
 }
 
+function ChevronLeft() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <path d="M11 4L6 9L11 14" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+function ChevronRight() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <path d="M7 4L12 9L7 14" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+function MobileSlider({ pr }) {
+  const [current, setCurrent] = useState(0)
+  const [selectedFat, setSelectedFat] = useState(0)
+  const [sliding, setSliding] = useState(false)
+
+  const total = pr.items.length
+
+  const goTo = (idx) => {
+    if (idx === current || sliding) return
+    setSliding(true)
+    setTimeout(() => {
+      setCurrent(idx)
+      setSelectedFat(0)
+      setSliding(false)
+    }, 200)
+  }
+
+  const prev = () => goTo((current - 1 + total) % total)
+  const next = () => goTo((current + 1) % total)
+
+  const item = pr.items[current]
+
+  return (
+    <div className="products__mobile-slider">
+
+      {/* Карточка — содержит изображение, стрелки и инфо */}
+      <div className="products__mobile-nav">
+        <div className="products__mobile-card">
+
+          {/* Фон с узором — обрезается по border-radius */}
+          <div className="products__mobile-card-bg">
+            <img
+              src="/images/product-uzor.png"
+              alt=""
+              className="products__mobile-card-uzor"
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* Зона картинки — выходит за верхний край карточки */}
+          <div className="products__mobile-card-img-area">
+            <img
+              src={productImgs[current]}
+              alt={item.name}
+              className={`products__mobile-card-img${sliding ? ' sliding' : ''}`}
+            />
+          </div>
+
+          {/* Инфо блок внутри карточки */}
+          <div className={`products__mobile-info${sliding ? ' sliding' : ''}`}>
+            <h3 className="products__mobile-name">{item.name}</h3>
+            <p className="products__mobile-sub">{item.sub}</p>
+
+            {item.fats && item.fats.length > 0 && (
+              <div className="products__mobile-fats">
+                <span className="products__mobile-fat-label">{pr.fatLabel}</span>
+                {item.fats.map((f, i) => (
+                  <button
+                    key={i}
+                    className={`products__mobile-fat-btn${selectedFat === i ? ' active' : ''}`}
+                    onClick={() => setSelectedFat(i)}
+                  >
+                    {f}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <p className="products__mobile-desc">{item.desc}</p>
+
+            <div className="products__mobile-eco">
+              <div className="products__mobile-eco-icon products__mobile-eco-icon--leaf">
+                <img src="/images/pr-list.png" alt="" />
+                <span className="products__mobile-eco-i">i</span>
+              </div>
+              {current === 3 && (
+                <div className="products__mobile-eco-icon products__mobile-eco-icon--recycle">
+                  <img src="/images/pr-recycle.png" alt="" />
+                  <span className="products__mobile-eco-i">i</span>
+                </div>
+              )}
+            </div>
+
+            <div className="products__mobile-kbju">
+              <span className="products__mobile-kbju-item">
+                <strong>{pr.proteinLabel}</strong> {item.protein} {pr.gram}
+              </span>
+              <span className="products__mobile-kbju-item">
+                <strong>{pr.fatLabel2}</strong> {item.fat} {pr.gram}
+              </span>
+              <span className="products__mobile-kbju-item">
+                <strong>{pr.carbsLabel}</strong> {item.carbs} {pr.gram}
+              </span>
+            </div>
+
+            <button className="products__mobile-buy">{pr.buy}</button>
+          </div>
+
+          {/* Стрелки внутри карточки */}
+          <button
+            className="products__mobile-arrow products__mobile-arrow--prev"
+            onClick={prev}
+            aria-label="Предыдущий продукт"
+          >
+            <ChevronLeft />
+          </button>
+          <button
+            className="products__mobile-arrow products__mobile-arrow--next"
+            onClick={next}
+            aria-label="Следующий продукт"
+          >
+            <ChevronRight />
+          </button>
+
+        </div>
+      </div>
+
+      {/* Dots */}
+      <div className="products__mobile-dots">
+        {pr.items.map((_, i) => (
+          <button
+            key={i}
+            className={`products__mobile-dot${i === current ? ' active' : ''}`}
+            onClick={() => goTo(i)}
+            aria-label={`Продукт ${i + 1}`}
+          />
+        ))}
+      </div>
+
+    </div>
+  )
+}
+
 export default function Products() {
   const { t } = useLang()
   const pr = t.products
@@ -44,7 +193,9 @@ export default function Products() {
   return (
     <section className="products" id="products">
       <div className="products__inner">
-        <h2 className={`products__title zametka-bold${active !== null ? ' products__title--expanded' : ''}`}>{pr.title}</h2>
+        <h2 className={`products__title zametka-bold${active !== null ? ' products__title--expanded' : ''}`}>
+          {pr.title}
+        </h2>
 
         {active === null ? (
           <div className="products__grid">
@@ -116,8 +267,7 @@ export default function Products() {
                   <span className="products__exp-kbju-val">{pr.items[active].carbs} {pr.gram}</span>
                 </div>
               </div>
-
-              <button className="products__exp-buy">{pr.buy}</button>
+ 
             </div>
 
             <button className="products__exp-back" onClick={handleClose} aria-label="Назад">
@@ -125,6 +275,9 @@ export default function Products() {
             </button>
           </div>
         )}
+
+        {/* Mobile slider */}
+        <MobileSlider pr={pr} />
       </div>
     </section>
   )

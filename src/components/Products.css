@@ -13,6 +13,7 @@
   margin: 0 auto;
 }
 
+
 .products__title {
   font-family: var(--second-family);
   font-weight: 700;
@@ -361,22 +362,321 @@
   .products__img-wrap { height: 220px; }
 }
 
+/* ===== Mobile slider ===== */
 @media (max-width: 768px) {
-  .products { padding: 100px 24px 56px; margin-top: -80px; }
-  .products__title { font-size: 34px; margin-bottom: 36px; }
-  .products__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    align-items: end;
+  .products {
+    padding: 100px 0 56px;
+    margin-top: -80px;
   }
-  .products__item { max-width: 100%; }
-  .products__img-wrap { height: 160px; }
-  .products__name { font-size: 14px; }
-  .products__sub { font-size: 11px; }
-  .products__arrow { width: 22px; height: 22px; }
-}
 
-@media (max-width: 480px) {
-  .products__grid { grid-template-columns: repeat(2, 1fr); }
+  .products__inner {
+    overflow: visible;
+  }
+
+  .products__title {
+    font-size: 34px;
+    margin-bottom: 28px;
+    padding: 0 24px;
+  }
+
+  /* Hide desktop grid on mobile — use slider instead */
+  .products__grid {
+    display: none;
+  }
+
+  /* Hide desktop expanded card — use mobile slider card */
+  .products__expanded {
+    display: none;
+  }
+
+  /* ===== Mobile slider wrapper ===== */
+  .products__mobile-slider {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    overflow: visible;
+  }
+
+  /* Обёртка — отступ сверху для выхода картинки */
+  .products__mobile-nav {
+    width: 100%;
+    padding: 44px 16px 0;
+    box-sizing: border-box;
+  }
+
+  /* Карточка — колонка: изображение сверху, инфо снизу */
+  .products__mobile-card {
+    width: 100%;
+    border-radius: 28px;
+    position: relative;
+    overflow: visible; /* чтобы картинка выходила вверх */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Фон — отдельный абсолютный слой с overflow:hidden */
+  .products__mobile-card-bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #B8E8FF;
+    z-index: 0;
+  }
+
+  .products__mobile-card-uzor {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    opacity: 0.35;
+    pointer-events: none;
+  }
+
+  /* Зона изображения — фиксированная высота, картинка выходит вверх */
+  .products__mobile-card-img-area {
+    position: relative;
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 2;
+    overflow: visible;
+  }
+
+  /* Картинка: выходит на 40px выше зоны */
+  .products__mobile-card-img {
+    height: calc(100% + 40px);
+    width: auto;
+    max-width: 68%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.18));
+    transition: opacity 0.2s ease;
+    position: relative;
+    z-index: 3;
+  }
+
+  .products__mobile-card-img.sliding {
+    opacity: 0;
+  }
+
+  /* Стрелки — абсолютно внутри карточки, по центру зоны изображения */
+  .products__mobile-arrow {
+    position: absolute;
+    top: calc(300px / 2); /* центр зоны изображения */
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #0039B5;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s;
+    color: white;
+    padding: 0;
+  }
+
+  .products__mobile-arrow--prev { left: 14px; }
+  .products__mobile-arrow--next { right: 14px; }
+
+  .products__mobile-arrow:hover { opacity: 0.85; }
+
+  .products__mobile-arrow:active {
+    transform: translateY(-50%) scale(0.93);
+  }
+
+  .products__mobile-arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+
+  .products__mobile-arrow svg { display: block; }
+
+  /* Dots */
+  .products__mobile-dots {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+
+  .products__mobile-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #B8E8FF;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .products__mobile-dot.active {
+    background: #0039B5;
+    transform: scale(1.25);
+  }
+
+  /* Инфо блок — внутри карточки, под изображением */
+  .products__mobile-info {
+    position: relative;
+    z-index: 2;
+    padding: 20px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: opacity 0.2s ease;
+  }
+
+  .products__mobile-info.sliding {
+    opacity: 0;
+  }
+
+  .products__mobile-name {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 24px;
+    color: #0039B5;
+    line-height: 1.2;
+    margin: 0;
+    text-align: center;
+  }
+
+  .products__mobile-sub {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 15px;
+    color: #0039B5;
+    opacity: 0.7;
+    text-align: center;
+    margin: 0;
+  }
+
+  .products__mobile-fats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .products__mobile-fat-label {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 15px;
+    color: #0039B5;
+  }
+
+  .products__mobile-fat-btn {
+    background: white;
+    border: none;
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0039B5;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .products__mobile-fat-btn.active {
+    background: #0039B5;
+    color: white;
+  }
+
+  .products__mobile-desc {
+    font-family: var(--font-family);
+    font-size: 14px;
+    color: #0039B5;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .products__mobile-eco {
+    display: flex;
+    gap: 10px;
+  }
+
+  .products__mobile-eco-icon {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .products__mobile-eco-icon--leaf { background: #65CCFF; }
+  .products__mobile-eco-icon--recycle { background: #C4DF6E; }
+
+  .products__mobile-eco-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .products__mobile-eco-icon--leaf img {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(79%) saturate(2000%) hue-rotate(207deg) brightness(90%);
+  }
+
+  .products__mobile-eco-i {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 14px;
+    height: 14px;
+    background: #0039B5;
+    color: white;
+    border-radius: 50%;
+    font-size: 9px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+  }
+
+  .products__mobile-kbju {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .products__mobile-kbju-item {
+    font-family: var(--font-family);
+    font-size: 14px;
+    color: #0039B5;
+  }
+
+  .products__mobile-kbju-item strong {
+    font-weight: 700;
+  }
+
+  .products__mobile-buy {
+    background: #0039B5;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 14px 0;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    font-family: var(--font-family);
+    transition: opacity 0.2s;
+    margin-top: 4px;
+  }
+
+  .products__mobile-buy:hover {
+    opacity: 0.85;
+  }
 }
