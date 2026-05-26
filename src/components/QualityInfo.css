@@ -1,7 +1,6 @@
 .qinfo {
   position: relative;
   width: 100%;
-  min-height: 1700px;
   background: #F9FDFF;
   overflow: hidden;
 }
@@ -105,7 +104,7 @@
   position: relative;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 60px 460px 380px;
+  padding: 60px 60px 180px 380px;
   z-index: 6;
 
 }
@@ -156,7 +155,7 @@
 .qinfo__steps {
   position: relative;
   margin-top: 260px;
-  height: 1100px;
+  height: 760px;
 }
 
 .qinfo__step {
@@ -195,7 +194,7 @@
 /* ===== Пиалка — правый нижний угол ===== */
 .qinfo__pialka {
   position: absolute;
-  bottom: 688px;
+  bottom: 66px;
   right: -20px;
   width: 320px;
   z-index: 4;
@@ -209,10 +208,10 @@
 /* ===== Молочник снизу слева ===== */
 .qinfo__grandfather {
   position: absolute;
-  bottom: 701px;
+  bottom: -2px;
   left: -20px;
   width: 440px;
-  z-index: 7;
+  z-index: 4;
 }
 .qinfo__grandfather img {
   width: 100%;
