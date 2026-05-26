@@ -362,7 +362,7 @@
 }
 
 @media (max-width: 768px) {
-  .products { padding: 100px 24px 56px; margin-top: -80px; }
+  .products { padding: 100px 24px 56px; margin-top: -80px; position: relative; z-index: 5; }
   .products__title { font-size: 34px; margin-bottom: 36px; }
   .products__grid {
     display: grid;

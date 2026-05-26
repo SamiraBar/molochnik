@@ -20,7 +20,7 @@ export default function Footer() {
           ))}
         </nav>
 
-        <a href="#" className="footer__social" aria-label="Instagram">
+        <a href="https://www.instagram.com/bishkeksut" target="_blank" rel="noopener noreferrer" className="footer__social" aria-label="Instagram">
           <img src="/images/insta.png" alt="insta" className="footer__insta-img" />
         </a>
 

@@ -76,7 +76,6 @@ export default function Header({ scrolled }) {
 
           <nav className="mobile-menu__nav">
             <a href="#quality" className="mobile-menu__link" onClick={closeMenu}>{t.nav.quality}</a>
-            <a href="#win" className="mobile-menu__link" onClick={closeMenu}>{t.nav.win}</a>
             <a href="#products" className="mobile-menu__link" onClick={closeMenu}>{t.nav.products}</a>
             <a href="#ecology" className="mobile-menu__link" onClick={closeMenu}>{t.nav.ecology}</a>
           </nav>
