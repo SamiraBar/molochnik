@@ -8,11 +8,6 @@ export default function QualityInfo() {
   return (
     <section className="qinfo" id="qinfo">
 
-      {/* Декоративные белые круги */}
-      <div className="qinfo__deco qinfo__deco--a" aria-hidden="true" />
-      <div className="qinfo__deco qinfo__deco--b" aria-hidden="true" />
-      <div className="qinfo__deco qinfo__deco--c" aria-hidden="true" />
-
       {/* Узор слева */}
       <div className="qinfo__uzor qinfo__uzor--left" aria-hidden="true">
         <img src="/images/uz1.png" alt="" />
@@ -29,9 +24,19 @@ export default function QualityInfo() {
       </div>
 
       {/* Грузовик — полупрозрачный, между первым и вторым пузырём */}
-      <div className="qinfo__truck" aria-hidden="true">
-        <img src="/images/gruzvoy.png" alt="" />
-      </div>
+        <div className="qinfo__truck" aria-hidden="true">
+            <img
+                src="/images/gruzvoy.png"
+                alt=""
+                className="qinfo__truck-desktop"
+            />
+
+            <img
+                src="/images/gruzovoi-mobile.png"
+                alt=""
+                className="qinfo__truck-mobile"
+            />
+        </div>
 
       {/* Контент */}
       <div className="qinfo__inner">
