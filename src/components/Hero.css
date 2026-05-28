@@ -267,10 +267,9 @@
   /* 20 лет — слева, у фартука персонажа */
   .hero__stamp {
     position: absolute;
-    top: auto;
-    bottom: 10%;
-    left: 14px;
-    width: 100px;
+    top: 315px;
+    left: 10px;
+    width: 144px;
     z-index: 6;
     transform: rotate(-12deg);
   }

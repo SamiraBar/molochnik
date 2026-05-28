@@ -93,12 +93,14 @@
   pointer-events: none;
 }
 
-.qinfo__truck img {
+.qinfo__truck-desktop {
   width: 100%;
   height: 700px;
   display: block;
 }
-
+.qinfo__truck-mobile {
+  display: none;
+}
 /* ===== Контент ===== */
 .qinfo__inner {
   position: relative;
@@ -178,6 +180,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  box-shadow:
+          0 10px 25px rgba(0, 0, 0, 0.14),
+          0 4px 10px rgba(0, 0, 0, 0.08);
 }
 .qinfo__step--left {
   background: #C0E7FA;
@@ -305,20 +310,26 @@
   .qinfo__uzor--left {
     top: 100px;
     left: -30px;
-    width: 260px;
+    width: 365px;
     transform: rotate(8deg);
   }
 
   /* Грузовик — декоративный, справа в зоне шагов */
   .qinfo__truck {
     width: 298px;
-    height: 531px;
-    top: 434px;
-    right: -39px;
+    height: 606px;
+    top: 452px;
+    right: -8px;
     left: auto;
   }
 
-  .qinfo__truck img {
+  .qinfo__truck-desktop {
+    display: none;
+  }
+
+  .qinfo__truck-mobile {
+    display: block;
+    width: 100%;
     height: auto;
   }
 
@@ -368,21 +379,67 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 30px;
     margin-top: 28px;
-    height: auto;
+    /*height: auto;*/
+    margin-bottom: 130px;
   }
 
   /* Каждый шаг — статичный блок, без абсолютного позиционирования */
   .qinfo__step {
     position: static;
-    width: 300px;
+    width: 335px;
     max-width: none;
-    height: auto;
-    min-height: 60px;
-    font-size: 13px;
-    padding: 14px 18px;
+    padding: 22px 26px;
+    border-radius: 34px;
+    font-family: 'Zametka_Parletter', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transform: none;
+    box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.18),
+            0 4px 12px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .qinfo__step p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Zametka_Parletter', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    text-align: center;
+    max-width: 240px;
+  }
+
+  .qinfo__steps > :nth-child(1) p {
+    max-width: 200px;
+  }
+
+  .qinfo__steps > :nth-child(2) p {
+    max-width: 250px;
+  }
+
+  .qinfo__steps > :nth-child(3) p {
+    max-width: 230px;
+  }
+
+  .qinfo__steps > :nth-child(4) p {
+    max-width: 230px;
+  }
+
+  .qinfo__steps > :nth-child(5) p {
+    max-width: 240px;
+  }
+
+  .qinfo__steps > :nth-child(6) p {
+    max-width: 250px;
   }
 
   .qinfo__step--wide {
@@ -391,33 +448,44 @@
   }
 
   /* Порядок + трансформы как на макете */
-  .qinfo__steps > :nth-child(1) { width: 280px; margin-left: 0; order: 1; transform: rotate(-3deg); }
+  .qinfo__steps > :nth-child(1) {
+    width: 335px;
+    margin-left: 0;
+    order: 1;
+    transform: rotate(-3deg);
+  }
   .qinfo__steps > :nth-child(2) { margin-left: 0; order: 2; transform: rotate(2deg); }
   .qinfo__steps > :nth-child(3) { margin-left: 0; order: 3; transform: rotate(-2deg); }
   /* Шаги 4 (Каждый день) и 5 (Пастеризуем) меняем местами: в дизайне Пастеризуем идёт выше */
   .qinfo__steps > :nth-child(4) { margin-left: 0; order: 5; transform: rotate(2deg); }
   .qinfo__steps > :nth-child(5) { margin-left: 0; order: 4; transform: rotate(-2deg); }
-  .qinfo__steps > :nth-child(6) { width: 300px; max-width: none; margin-left: 0; order: 6; transform: none; }
+  .qinfo__steps > :nth-child(6) {
+    width: 350px;
+    max-width: none;
+    margin-left: 0;
+    order: 6;
+    transform: none;
+  }
 
   /* Нижние декорации */
   .qinfo__pialka {
     width: 276px;
     right: -44px;
-    bottom: -67px;
+    bottom: -27px;
   }
 
   .qinfo__grandfather {
-    width: 240px;
+    width: 300px;
     bottom: 0;
-    left: 0;
-  }
+    left: -14px;
+    z-index: 25;}
 }
 
 @media (max-width: 490px) {
   .qinfo__cow { width: 115px; top: 118px; }
   .qinfo__bubble { left: 106px; top: 118px; width: 168px; }
   .qinfo__benefits { margin-top: 155px; }
-  .qinfo__step { width: 300px; }
+  .qinfo__step { width: 355px; }
   .qinfo__steps > :nth-child(1) { width: 300px; }
   .qinfo__benefit { width: auto; flex: 1; }
 }

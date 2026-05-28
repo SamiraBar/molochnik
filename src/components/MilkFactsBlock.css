@@ -157,12 +157,30 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+    position: relative;
 }
 
 .milk-facts__content--active .milk-facts__quiz-card,
 .milk-facts__content--active .milk-facts__result-card {
   max-width: 720px;
   width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.milk-facts__content--active::before {
+    content: '';
+
+    position: absolute;
+    inset: -40px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    background: rgba(255,255,255,0.15);
+
+    z-index: 0;
+    border-radius: 40px;
 }
 
 /* ===== Blur states ===== */
@@ -186,7 +204,6 @@
   position: relative;
   margin: 30px 0 0;
   width: 100%;
-  min-height: 380px;
   background: #DFF5FF;
   border-radius: 44px;
   padding: 48px 56px;
@@ -194,6 +211,10 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+
+    min-height: 420px;
 }
 
 .milk-facts__quiz-bg {
@@ -211,27 +232,42 @@
 .milk-facts__answers,
 .milk-facts__next-btn,
 .milk-facts__result-title,
-.milk-facts__result-text,
 .milk-facts__close-btn {
   position: relative;
   z-index: 1;
+    font-size: 48px;
+    line-height: 100%;
+    margin-bottom: 20px;
+}
+
+.milk-facts__result-text {
+    font-size: 20px;
+    max-width: 520px;
 }
 
 .milk-facts__next-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: #B8E8FF;
-  color: #0039B5;
-  border: none;
-  border-radius: 100px;
-  padding: 8px 20px;
-  font-family: var(--font-family);
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  z-index: 2;
-  transition: background 0.2s;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    height: 42px;
+
+    padding: 0 18px;
+
+    border-radius: 999px;
+
+    background: #7FD8FF;
+
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    border: none;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 .milk-facts__next-btn:hover { background: #9ddaf5; }
 
@@ -276,32 +312,183 @@
   gap: 10px;
   transition: opacity 0.2s, background 0.25s;
 }
-.milk-facts__answer-btn:hover:not(:disabled):not(.correct):not(.wrong) {
-  opacity: 0.85;
+
+
+.milk-facts__answers {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    margin-top: 10px;
 }
-.milk-facts__answer-btn.correct {
-  background: #4CAF50;
-  cursor: default;
-  text-align: left;
+
+.milk-facts__answer-btn {
+    flex: 1;
+    min-height: 92px;
+
+    border: none;
+    border-radius: 28px;
+
+    background: #0039B5;
+    color: #fff;
+
+    padding: 24px 26px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+            all 0.35s ease,
+            transform 0.25s ease,
+            filter 0.35s ease,
+            opacity 0.35s ease;
+
+    position: relative;
+
+    overflow: hidden;
 }
-.milk-facts__answer-btn.wrong {
-  background: #E53935;
-  cursor: default;
-  text-align: left;
+
+.milk-facts__answer-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
 }
-.milk-facts__answer-btn.dim {
-  opacity: 0.35;
-  cursor: default;
+
+.milk-facts__answer-label {
+    font-family: var(--font-family);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.milk-facts__answer-exp {
+    margin-top: 14px;
+
+    font-size: 17px;
+    line-height: 145%;
+    font-weight: 500;
+
+    animation: fadeAnswer 0.35s ease;
+}
+
+/* ===== SELECTED ===== */
+
+.milk-facts__answers {
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+    margin-top: 10px;
+}
+
+.milk-facts__answers.answered {
+    flex-direction: column;
+}
+
+.milk-facts__answer-btn {
+    width: 100%;
+    min-height: 92px;
+
+    border: none;
+    border-radius: 28px;
+
+    background: #0039B5;
+    color: #fff;
+
+    padding: 24px 26px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    text-align: left;
+
+    transition:
+            all .45s ease,
+            opacity .35s ease,
+            filter .35s ease;
+
+    overflow: hidden;
+}
+
+.milk-facts__answer-btn--correct,
+.milk-facts__answer-btn--wrong {
+    min-height: 190px;
+
+    justify-content: flex-start;
+
+    padding-top: 28px;
+
+    transform: scale(1.01);
+}
+
+.milk-facts__answer-btn--correct {
+    background: #12B05C;
+}
+
+.milk-facts__answer-btn--wrong {
+    background: #E32626;
+}
+
+.milk-facts__answer-btn--blur {
+    opacity: 0;
+    transform: scale(.96);
+    pointer-events: none;
+
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+/* ===== BLUR OTHER BUTTON ===== */
+
+
+/* ===== ANIMATION ===== */
+
+@keyframes fadeAnswer {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .milk-facts__answer-label {
   font-weight: 700;
 }
 .milk-facts__answer-exp {
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 1.5;
-  display: block;
+    margin-top: 14px;
+
+    font-size: 17px;
+    line-height: 145%;
+    font-weight: 500;
+
+    opacity: 0;
+
+    animation: answerText .45s ease forwards;
+    animation-delay: .15s;
+}
+
+@keyframes answerText {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ===== Result ===== */
@@ -343,255 +530,59 @@
   margin: 0;
 }
 
-/* ===== Адаптив ===== */
+@media (max-width: 768px) {
+    .milk-facts__quiz-card,
+    .milk-facts__result-card {
+        padding: 34px 24px 28px;
+        border-radius: 30px;
+    }
 
-/*@media (max-width: 1280px) {*/
-/*    .milk-facts__bubble{*/
-/*        width: 489px;*/
-/*        height: 146px;*/
-/*    }*/
+    .milk-facts__answers {
+        gap: 14px;
+    }
 
-/*    .milk-facts__bubble p {*/
-/*        font-size: 16px;*/
-/*        max-width: 620px;*/
-/*    }*/
+    .milk-facts__answer-label {
+        font-size: 18px;
+    }
 
-/*  .milk-facts__button {*/
-/*      margin-left: auto;*/
-/*      margin-right: auto;*/
-/*  }*/
+    .milk-facts__answer-exp {
+        font-size: 15px;
+    }
 
-/*    .milk-facts__uzor {*/
-/*        top: -200px;*/
-/*    }*/
-/*}*/
+    .milk-facts__q-text {
+        font-size: 20px;
+        line-height: 135%;
+    }
+}
 
-/*@media (max-width: 1000px) {*/
-/*    .milk-facts__bubble{*/
-/*        width: 489px;*/
-/*        height: 146px;*/
-/*        margin: 45px 0 0 -50px;*/
-/*        padding: 34px 58px 34px 58px;*/
-/*    }*/
+@media (max-width: 550px) {
+    .milk-facts__quiz-card,
+    .milk-facts__result-card {
+        min-height: auto;
+    }
 
-/*    .milk-facts__title {*/
-/*        margin: 0 30px 95px 0;*/
-/*    }*/
+    .milk-facts__answers {
+        gap: 12px;
+    }
 
-/*    .milk-facts__bubble p {*/
-/*        font-size: 16px;*/
-/*        max-width: 620px;*/
-/*        font-size: 18px;*/
-/*    }*/
+    .milk-facts__answer-btn {
+        border-radius: 22px;
+        padding: 18px 18px;
+    }
 
-/*    .milk-facts__button {*/
-/*        margin-left: auto;*/
-/*        margin-right: auto;*/
-/*    }*/
+    .milk-facts__answer-btn--correct,
+    .milk-facts__answer-btn--wrong {
+        min-height: 220px;
+    }
 
-/*    .milk-facts__uzor {*/
-/*        top: -200px;*/
-/*    }*/
+    .milk-facts__q-num {
+        font-size: 26px;
+    }
 
-/*    .milk-facts__man {*/
-/*        left: -50px;*/
-/*        bottom: -280px;*/
-/*        width: 550px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 900px) {*/
-/*    .milk-facts__bubble{*/
-/*        width: 489px;*/
-/*        height: 146px;*/
-/*        margin: 45px 0 0 -110px;*/
-/*        padding: 34px 58px 34px 58px;*/
-/*    }*/
-
-/*    .milk-facts__title {*/
-/*        margin: 0 30px 95px 0;*/
-/*    }*/
-
-/*    .milk-facts__bubble p {*/
-/*        font-size: 16px;*/
-/*        max-width: 620px;*/
-/*        font-size: 18px;*/
-/*    }*/
-
-/*    .milk-facts__button {*/
-/*        margin-left: auto;*/
-/*        margin-right: auto;*/
-/*    }*/
-
-/*    .milk-facts__uzor {*/
-/*        top: -100px;*/
-/*    }*/
-
-/*    .milk-facts__man {*/
-/*        left: -50px;*/
-/*        bottom: -180px;*/
-/*        width: 450px;*/
-/*    }*/
-
-/*    .milk-facts__button {*/
-/*        width: 263px;*/
-/*        height: 76px;*/
-/*        font-size: 24px;*/
-/*        border-radius: 27px;*/
-/*    }*/
-
-/*    .milk-facts__title {*/
-/*        font-size: 55px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 850px) {*/
-/*    .milk-facts__bubble {*/
-/*        width: 430px;*/
-/*        height: 130px;*/
-/*        padding: 34px 28px 34px 50px;*/
-/*        margin: 45px 0 0 -170px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 700px) {*/
-/*    .milk-facts__bubble {*/
-/*        width: 300px;*/
-/*        height: 170px;*/
-/*        padding: 34px 28px 34px 50px;*/
-/*        margin: 25px 0 0 -160px;*/
-/*    }*/
-
-/*    .milk-facts__bubble p {*/
-/*        font-size: 16px;*/
-/*    }*/
-
-/*    .milk-facts__button {*/
-/*        width: 263px;*/
-/*        height: 76px;*/
-/*        font-size: 24px;*/
-/*        border-radius: 27px;*/
-/*        margin: 50px 0 0 -65px;*/
-/*    }*/
-
-/*    .milk-facts__title {*/
-/*        margin: 0 30px 75px 0;*/
-/*    }*/
-
-/*    .milk-facts__uzor {*/
-/*        top: -10px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 650px) {*/
-/*    .milk-facts__bubble {*/
-/*        width: 300px;*/
-/*        height: 170px;*/
-/*        padding: 34px 28px 34px 50px;*/
-/*        margin: 25px 0 70px -160px;*/
-/*    }*/
-
-/*    .milk-facts__bubble p {*/
-/*        font-size: 16px;*/
-/*    }*/
-
-/*    .milk-facts__button {*/
-/*        width: 263px;*/
-/*        height: 76px;*/
-/*        font-size: 24px;*/
-/*        border-radius: 27px;*/
-/*        margin: 10px 0 -80px -125px;*/
-/*    }*/
-
-/*    .milk-facts__title {*/
-/*        margin: 0 30px 35px 0;*/
-/*    }*/
-
-/*    .milk-facts__uzor {*/
-/*        top: 100px;*/
-/*    }*/
-
-/*    .milk-facts__man {*/
-/*        left: -50px;*/
-/*        bottom: -120px;*/
-/*        width: 370px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 600px) {*/
-/*    .milk-facts__bubble {*/
-/*        width: 300px;*/
-/*        height: 170px;*/
-/*        padding: 34px 28px 34px 50px;*/
-/*        margin: 25px 0 130px -200px;*/
-/*        transform: translateY(60px);*/
-/*    }*/
-
-/*    .milk-facts__bubble p {*/
-/*        font-size: 16px;*/
-/*    }*/
-
-/*    .milk-facts__button {*/
-/*        width: 203px;*/
-/*        height: 56px;*/
-/*        font-size: 20px;*/
-/*        border-radius: 22px;*/
-/*        margin: 10px 0 -80px -125px;*/
-/*    }*/
-
-/*    .milk-facts__title {*/
-/*        margin: 0 30px 15px 0;*/
-/*        font-size: 44px;*/
-/*    }*/
-
-/*    .milk-facts__uzor {*/
-/*        top: 100px;*/
-/*    }*/
-
-/*    .milk-facts__man {*/
-/*        left: -50px;*/
-/*        bottom: -120px;*/
-/*        width: 370px;*/
-/*    }*/
-/*}*/
-
-/*@media (max-width: 550px) {*/
-/*    .milk-facts__bubble {*/
-/*        width: 280px;*/
-/*        height: 120px;*/
-/*        padding: 34px 28px 34px 50px;*/
-/*        margin: 25px 0 130px -230px;*/
-/*        transform: translateY(80px);*/
-/*        background-image: url('/images/mobileFactBlock.png');*/
-/*    }*/
-
-/*    .milk-facts__bubble p {*/
-/*        font-size: 12px;*/
-/*    }*/
-
-/*    .milk-facts__button {*/
-/*        width: 203px;*/
-/*        height: 56px;*/
-/*        font-size: 20px;*/
-/*        border-radius: 22px;*/
-/*        margin: 10px 0 -80px -175px;*/
-/*    }*/
-
-/*    .milk-facts__title {*/
-/*        margin: 0 30px 15px 0;*/
-/*        font-size: 44px;*/
-/*    }*/
-
-/*    .milk-facts__uzor {*/
-/*        top: 100px;*/
-/*    }*/
-
-/*    .milk-facts__man {*/
-/*        left: -50px;*/
-/*        bottom: -100px;*/
-/*        width: 340px;*/
-/*    }*/
-/*}*/
+    .milk-facts__q-text {
+        font-size: 18px;
+    }
+}
 
 @media (max-width: 1280px) {
     .milk-facts {
@@ -698,7 +689,7 @@
     }
 
     .milk-facts__uzor {
-        top: 20зч;
+        top: 20px;
         width: 150%;
         right: -210px;
     }
