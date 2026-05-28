@@ -318,7 +318,7 @@
   .qinfo__truck {
     width: 298px;
     height: 606px;
-    top: 427px;
+    top: 452px;
     right: -8px;
     left: auto;
   }
@@ -486,6 +486,6 @@
   .qinfo__bubble { left: 106px; top: 118px; width: 168px; }
   .qinfo__benefits { margin-top: 155px; }
   .qinfo__step { width: 355px; }
-  .qinfo__steps > :nth-child(1) { width: 335px; }
+  .qinfo__steps > :nth-child(1) { width: 300px; }
   .qinfo__benefit { width: auto; flex: 1; }
 }
