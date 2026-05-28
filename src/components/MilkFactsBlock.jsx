@@ -18,7 +18,7 @@ export default function MilkFactsBlock() {
     if (questions[currentQ].correct === idx) setScore(s => s + 1)
   }
 
-  const finalScore = Math.round((score / questions.length) * 100)
+  const finalScore = score * 10 + 9
 
   const handleNext = () => {
     if (currentQ + 1 >= questions.length) {
@@ -75,31 +75,69 @@ export default function MilkFactsBlock() {
               )}
               <p className="milk-facts__q-num">{f.questionLabel} {currentQ + 1}</p>
               <p className="milk-facts__q-text">{questions[currentQ].text}</p>
-              <div className="milk-facts__answers">
-                {questions[currentQ].options.map((opt, i) => {
-                  const isSelected = answered === i
-                  const isCorrect = questions[currentQ].correct === i
-                  let cls = 'milk-facts__answer-btn'
-                  if (isSelected) {
-                    cls += isCorrect ? ' correct' : ' wrong'
-                  } else if (answered !== null) {
-                    cls += ' dim'
-                  }
-                  return (
-                    <button
-                      key={i}
-                      className={cls}
-                      onClick={() => handleAnswer(i)}
-                      disabled={answered !== null && !isSelected}
-                    >
-                      <span className="milk-facts__answer-label">{opt.label}</span>
-                      {isSelected && (
-                        <span className="milk-facts__answer-exp">{opt.explanation}</span>
-                      )}
-                    </button>
-                  )
-                })}
-              </div>
+              {/*<div className="milk-facts__answers">*/}
+              {/*  {questions[currentQ].options.map((opt, i) => {*/}
+              {/*    const isSelected = answered === i*/}
+              {/*    const isCorrect = questions[currentQ].correct === i*/}
+              {/*    let cls = 'milk-facts__answer-btn'*/}
+              {/*    if (isSelected) {*/}
+              {/*      cls += isCorrect ? ' correct' : ' wrong'*/}
+              {/*    } else if (answered !== null) {*/}
+              {/*      cls += ' dim'*/}
+              {/*    }*/}
+              {/*    return (*/}
+              {/*      <button*/}
+              {/*        key={i}*/}
+              {/*        className={cls}*/}
+              {/*        onClick={() => handleAnswer(i)}*/}
+              {/*        disabled={answered !== null && !isSelected}*/}
+              {/*      >*/}
+              {/*        <span className="milk-facts__answer-label">{opt.label}</span>*/}
+              {/*        {isSelected && (*/}
+              {/*          <span className="milk-facts__answer-exp">{opt.explanation}</span>*/}
+              {/*        )}*/}
+              {/*      </button>*/}
+              {/*    )*/}
+              {/*  })}*/}
+              {/*</div>*/}
+                <div className={`milk-facts__answers ${answered !== null ? 'answered' : ''}`}>
+                    {questions[currentQ].options.map((opt, i) => {
+                        const isSelected = answered === i
+                        const isCorrect = questions[currentQ].correct === i
+
+                        let cls = 'milk-facts__answer-btn'
+
+                        if (answered !== null) {
+                            if (isSelected) {
+                                cls += isCorrect
+                                    ? ' milk-facts__answer-btn--correct'
+                                    : ' milk-facts__answer-btn--wrong'
+                            } else {
+                                cls += ' milk-facts__answer-btn--blur'
+                            }
+                        }
+
+                        return (
+                            <button
+                                key={i}
+                                type="button"
+                                className={cls}
+                                onClick={() => handleAnswer(i)}
+                                disabled={answered !== null}
+                            >
+        <span className="milk-facts__answer-label">
+          {opt.label}
+        </span>
+
+                                {isSelected && (
+                                    <span className="milk-facts__answer-exp">
+            {opt.explanation}
+          </span>
+                                )}
+                            </button>
+                        )
+                    })}
+                </div>
             </div>
           )}
 
