@@ -88,7 +88,13 @@ function MobileSlider({ pr }) {
                         <img
                             src={productImgs[current]}
                             alt={item.name}
-                            className={`products__mobile-card-img${sliding ? ' sliding' : ''}`}
+                            className={`products__mobile-card-img${
+                                sliding ? ' sliding' : ''
+                            }${
+                                productImgs[current] === '/images/pr-smetana.png'
+                                    ? ' products__mobile-card-img--smetana'
+                                    : ''
+                            }`}
                         />
                     </div>
 
@@ -139,7 +145,6 @@ function MobileSlider({ pr }) {
               </span>
                         </div>
 
-                        <button className="products__mobile-buy">{pr.buy}</button>
                     </div>
 
                     {/* Стрелки внутри карточки */}
